@@ -2,22 +2,18 @@ import './App.css';
 import React, { useState } from 'react';
 import BgMap from './components/BgMap';
 import SearchBar from './components/SearchBar';
+import Directions from './components/Directions';
 
 function App() {
 
   const [location, setLocation] = useState(null);
 
-  const handleSearch = (searchTerm) => {
-    // Handle search logic here. You can update state or perform actions.
-    console.log('Search for:', searchTerm);
-    // For example, setting the location to the new search term
-    setLocation(searchTerm);
-  };
-
   return (
-    <div className="w-full">
+    <div>
+      <Directions />
       <BgMap location={location}/>
-      <SearchBar onSearch={handleSearch} />
+      <SearchBar />
+      
     </div>
   )
 }

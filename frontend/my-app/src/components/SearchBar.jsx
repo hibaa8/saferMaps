@@ -39,12 +39,15 @@ const SearchButton = styled.button`
 `;
 
 
-const SearchBar = ({ onSearch }) => {
+const SearchBar = () => {
     const [location, setLocation] = useState('');
 
+
+    //TODO FOR HARRY
     const handleSearch = () => {
         if (location) {
-          onSearch(location); // Call the onSearch function passed as a prop
+          // Handle search logic here
+          // Replace with real API calls
           setLocation('');
         }
     };
