@@ -14,7 +14,7 @@ def get_public_transit_route(origin, destination, api_key):
     headers = {
         'Content-Type': 'application/json',
         'X-Goog-Api-Key': api_key,
-        'X-Goog-FieldMask': 'routes.legs.steps.transitDetails'
+        'X-Goog-FieldMask': '*'
     }
 
     # Define the request data
@@ -33,8 +33,40 @@ def get_public_transit_route(origin, destination, api_key):
         }
     }
 
+
     # Send the request
     response = requests.post(url, headers=headers, json=data)
+
+    # Check if the request was successful
+    if response.status_code == 200:
+        return response.json()
+    else:
+        print(f'Error: {response.status_code}')
+        return None
+
+def get_walking_directions(origin, destination, api_key):
+    """
+    Get walking directions between two locations using Google Routes API.
+
+    Args:
+    - origin (str): Origin location
+    - destination (str): Destination location
+    - api_key (str): Google Routes API key
+
+    Returns:
+    - dict: Dictionary containing walking directions
+    """
+    # Set API endpoint and parameters
+    base_url = "https://maps.googleapis.com/maps/api/directions/json"
+    params = {
+        "origin": origin,
+        "destination": destination,
+        "key": api_key,
+        "mode": "walking"
+    }
+
+    # Get walking directions
+    response = requests.get(base_url, params=params)
 
     # Check if the request was successful
     if response.status_code == 200:
@@ -62,6 +94,14 @@ def main():
     # Save the route information to a JSON file
     if route_info is not None:
         with open('route_info.json', 'w') as f:
+            json.dump(route_info, f, indent=4)
+
+    # Get the walking route
+    route_info = get_walking_directions(origin, destination, api_key)
+
+    # Save the route information to a JSON file
+    if route_info is not None:
+        with open('walk_route_info.json', 'w') as f:
             json.dump(route_info, f, indent=4)
 
 if __name__ == "__main__":
