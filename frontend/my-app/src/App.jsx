@@ -109,6 +109,29 @@ function App() {
         }}
       />
 
+      {/* "Powered by Groq" Link */}
+      <a href="https://groq.com" target="_blank" rel="noopener noreferrer" 
+         style={{
+           position: 'absolute',
+           top: '75px',
+           width: '70px',
+           height: 'auto',
+           right: '20px',
+           display: 'flex',
+           alignItems: 'center',
+           gap: '8px',
+         }}
+      >
+        <img
+          src="https://groq.com/wp-content/uploads/2024/03/PBG-mark1-color.svg"
+          alt="Powered by Groq for fast inference."
+          style={{
+            width: '120px',
+            height: 'auto',
+          }}
+        />
+      </a>
+
     </div>
   )
 }
