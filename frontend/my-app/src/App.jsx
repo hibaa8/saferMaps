@@ -47,7 +47,7 @@ function App() {
             zIndex: 100,
           }}
         >
-          <Directions routeData={routes} />
+{/*           <Directions routeData={routes} /> */}
         </div>
       )}
 
