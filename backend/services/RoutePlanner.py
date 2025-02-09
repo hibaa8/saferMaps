@@ -113,7 +113,7 @@ class RoutePlanner:
 
             print(f"Route {route_index + 1}: Distance = {total_distance:.2f} meters, Crime Density = {total_crime}, f_score = {total_f_score:.2f}")
 
-        plt.show()
+        # plt.show()
 
         # Return the two best routes
         return [(route[0], route[1], route[4]) for route in best_routes]  # Return (route_index, path, f_score)
