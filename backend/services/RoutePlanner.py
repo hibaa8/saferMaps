@@ -1,14 +1,25 @@
-import json
+import heapq
 import networkx as nx
 from geopy.distance import geodesic
 import matplotlib.pyplot as plt
-import heapq
 import numpy as np
-from RouteGraph import RouteGraph
+from .RouteGraph import RouteGraph
+
 
 class RoutePlanner:
     def __init__(self, crime_data):
         self.crime_data = crime_data
+
+    def get_crime_coordinates(self, crime):
+        if "latitude" in crime and "longitude" in crime:
+            return float(crime["latitude"]), float(crime["longitude"])
+        if "lat_lon" in crime and "coordinates" in crime["lat_lon"]:
+            coordinates = crime["lat_lon"]["coordinates"]
+            return float(coordinates[1]), float(coordinates[0])
+        if "geocoded_column" in crime and "coordinates" in crime["geocoded_column"]:
+            coordinates = crime["geocoded_column"]["coordinates"]
+            return float(coordinates[1]), float(coordinates[0])
+        return None
 
     def crime_density(self, node):
         node_lat, node_lng = node
@@ -16,11 +27,12 @@ class RoutePlanner:
         threshold_distance = 1000  # meters
 
         for crime in self.crime_data:
-            crime_lat = float(crime["latitude"])
-            crime_lng = float(crime["longitude"])
-            crime_location = (crime_lat, crime_lng)
-            if geodesic(node, crime_location).meters <= threshold_distance:
-                crime_count += 1
+            crime_coords = self.get_crime_coordinates(crime)
+            if crime_coords:
+                crime_lat, crime_lng = crime_coords
+                crime_location = (crime_lat, crime_lng)
+                if geodesic(node, crime_location).meters <= threshold_distance:
+                    crime_count += 1
 
         return crime_count
 
@@ -52,8 +64,8 @@ class RoutePlanner:
                 return path[::-1], total_path_f_score
 
             for neighbor in graph.neighbors(current):
-                edge_weight = graph[current][neighbor]['weight']
-                tentative_g_score = g_score[current] + edge_weight
+                current_edge_weight = graph[current][neighbor]['weight']
+                tentative_g_score = g_score[current] + current_edge_weight
 
                 if neighbor not in reached or tentative_g_score < g_score[neighbor]:
                     g_score[neighbor] = tentative_g_score
@@ -74,14 +86,7 @@ class RoutePlanner:
         ax.set_title(title)
 
     def find_best_routes(self, json_data):
-        num_routes = len(json_data["routes"])
-        fig, axes = plt.subplots(1, num_routes, figsize=(15, 5))
-        axes = np.atleast_1d(axes)
-
-        best_route_index = -1
-        min_score = float('inf')
-        best_route_summary = ""
-        best_route = None
+        route_scores = []
 
         for route_index, route in enumerate(json_data["routes"]):
             route_graph = RouteGraph(route)
@@ -93,17 +98,23 @@ class RoutePlanner:
             else:
                 total_distance = total_crime = total_f_score = float('inf')
 
-            self.visualize_graph(route_graph.graph, path, f"Route {route_index + 1}\nDistance: {total_distance:.2f}m\nCrime: {total_crime}\nTotal f_score: {total_f_score:.2f}", axes[route_index])
+            route_scores.append((route_index, path, total_distance, total_crime, total_f_score, route_graph.graph))
+
+        # Sort the routes based on the f_score and select the top 2
+        route_scores.sort(key=lambda x: x[4])  # Sort by f_score
+        best_routes = route_scores[:2]  # Top 2 routes
+
+        # Visualization
+        fig, axes = plt.subplots(1, len(best_routes), figsize=(15, 5))
+        axes = np.atleast_1d(axes)
+
+        for i, (route_index, path, total_distance, total_crime, total_f_score, graph) in enumerate(best_routes):
+            self.visualize_graph(graph, path, f"Route {route_index + 1}\nDistance: {total_distance:.2f}m\nCrime: {total_crime}\nTotal f_score: {total_f_score:.2f}", axes[i])
 
             print(f"Route {route_index + 1}: Distance = {total_distance:.2f} meters, Crime Density = {total_crime}, f_score = {total_f_score:.2f}")
 
-            if total_f_score < min_score:
-                best_route_index = route_index
-                best_route = route
-                min_score = total_f_score
-                best_route_summary = f"Best Route: {route_index + 1} | Distance: {total_distance:.2f}m | Crime: {total_crime} | Total f_score: {total_f_score:.2f}"
-
-        print("\n" + best_route_summary)
         plt.show()
-        return best_route
+
+        # Return the two best routes
+        return [(route[0], route[1], route[4]) for route in best_routes]  # Return (route_index, path, f_score)
 
