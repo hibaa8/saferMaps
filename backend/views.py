@@ -40,7 +40,6 @@ def get_closest_camera_endpoint():
         with open(camera_data_path, 'r') as file:
             camera_data = json.load(file)
 
-
         # Get the JSON data from the request
         data = request.get_json()
 
@@ -101,15 +100,14 @@ def get_routes():
             file.write('ROUTING INFO\n')
             file.write(json.dumps(route_info, indent=2))  # Convert to string with indentation
             
-            with open('database/crime_data.json', 'r') as crime_file:
-                crime_data = json.load(crime_file)
+        with open('database/crime_data.json', 'r') as crime_file:
+            crime_data = json.load(crime_file)
                 
-                file.write('\nCRIME DATA\n')
-                file.write(json.dumps(crime_data, indent=2))  # Convert to string with indentation
-
+        with open('database/population_density.json', 'r') as population_file:
+            population_data = json.load(population_file)
 
         # find the best routes
-        planner = RoutePlanner(crime_data)
+        planner = RoutePlanner(crime_data, population_data)
         best_routes = planner.find_best_routes(route_info)
 
         # # Save best routes to the database 
