@@ -8,7 +8,7 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "start-backend": "cd ../../backend/scripts && python mapAPI.py",
+    "start-backend": "cd ../../backend/services && python mapAPI.py",
     "start": "npm run dev && npm run start-backend"
   },
   "dependencies": {
