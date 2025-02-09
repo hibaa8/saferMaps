@@ -47,7 +47,7 @@ function App() {
             zIndex: 100,
           }}
         >
-{/*           <Directions routeData={routes} /> */}
+          <Directions origin={origin} destination={destination} />
         </div>
       )}
 
@@ -94,3 +94,4 @@ function App() {
 }
 
 export default App;
+
