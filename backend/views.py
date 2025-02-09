@@ -1,3 +1,4 @@
+from flask import Blueprint, send_from_directory, request, jsonify
 import os
 from flask import request, Blueprint, send_from_directory, render_template, request, jsonify
 import os
@@ -7,6 +8,7 @@ import requests
 from services.GroqImage import GroqImage
 from services.MapAPI import MapAPI
 from services.RoutePlanner import RoutePlanner
+from services.RouteSummary import routeSummary
 import json
 
 views = Blueprint('views', __name__)
@@ -30,24 +32,50 @@ def serve_react(path):
 @views.route('/get_closest_camera', methods=['POST'])
 def get_closest_camera_endpoint():
     try:
-        groq = GroqImage()
+        # Get the absolute path of the current script and adjust path to 'services' folder
+        base_dir = os.path.dirname(os.path.abspath(__file__))
+        camera_data_path = os.path.join(base_dir, 'services', 'cameras_with_location.json')
+
+        # Now, you can safely open the file
+        with open(camera_data_path, 'r') as file:
+            camera_data = json.load(file)
+
+
+        # Get the JSON data from the request
         data = request.get_json()
-        if 'route' not in data or 'cameras' not in data:
-            print("Missing required parameters")
+
+        # Validate input data
+        if 'route_data' not in data:
             return jsonify({'error': 'Missing required parameters'}), 400
 
-        route = data['route']
-        cameras = data['cameras']
-        closest_camera = groq.get_closest_camera(route, cameras)
+        route_data = data['route_data']
 
-        if closest_camera is None:
+        # Extract the destination coordinates from the route data
+        destination = route_data['routes'][0]['legs'][0]['end_location']
+
+        # Instantiate GroqImage
+        groq_image = GroqImage()
+
+        # Pass camera_data to the get_closest_camera method
+        closest_camera_destination = groq_image.get_closest_camera(destination['lat'], destination['lng'], camera_data)
+
+        if not closest_camera_destination:
             return jsonify({'error': 'No camera found with latitude and longitude'}), 404
 
-        url = closest_camera['url']
-        description = groq.get_image_description(url)
+        # Get image description from GroqImage for the destination
+        description_destination = groq_image.get_image_description(closest_camera_destination['url'])
 
-        return jsonify({'url': url, 'description': description})
-    except Exception as e:  
+        # Prepare the response data
+        response_data = {
+            'destination': {
+                'url': closest_camera_destination['url'],
+                'description': description_destination
+            }
+        }
+
+        return jsonify(response_data)
+
+    except Exception as e:
         print(f"Error: {e}")
         return jsonify({'error': 'An error occurred'}), 500
     
@@ -101,9 +129,18 @@ def get_routes():
     except Exception as e:
         print(f"Error: {e}")
         return jsonify({'error': 'An error occurred'}), 500
-    
 
+@views.route('/summarize_routes', methods=['POST'])
+def summarize():
+    try:
+        # Get the JSON data from the request
+        data = request.get_json()
 
-    
+        # Call Groq API to summarize the routes
+        summaries = routeSummary.summarize_routes_with_groq(data)
 
+        # Return the summaries
+        return jsonify({"summaries": summaries})
+    except Exception as e:
+        return jsonify({"error": str(e)}), 400
     

@@ -1,9 +1,5 @@
-from flask import Flask, request, jsonify
 import requests
-import json
 from dotenv import load_dotenv
-import os
-from flask_cors import CORS
 
 # Load environment variables from the .env file
 load_dotenv()

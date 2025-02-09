@@ -53,7 +53,7 @@ const SuggestionsContainer = styled.div`
     props.fixed
       ? css`
           position: fixed;
-          top: 80px; /* Adjust as needed */
+          top: 80px;
           left: 10px;
           z-index: 10;
           background-color: #fff;
