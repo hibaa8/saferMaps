@@ -1,16 +1,14 @@
-import { ContainerFilled } from '@ant-design/icons';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import SearchBar from './SearchBar';
 
 const Container = styled.div`
-    position: absolute;
-    top: 30px;
-    width: 420px;
-    background-color: white;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    z-index: 100;
+  position: absolute;
+  top: 30px;
+  width: 420px;
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 100;
 `;
 
 const Hr = styled.hr`
@@ -22,7 +20,6 @@ const Hr = styled.hr`
 const RouteOption = styled.div`
   padding: 5px;
   margin-bottom: 10px;
-  color: #333;
   text-align: left;
   display: flex;
   flex-direction: column;
@@ -39,99 +36,94 @@ const RouteOption = styled.div`
   }
 `;
 
-const Button = styled.button`
-  position: absolute;
-  top: 10px;
-  right: -80px;
-  padding: 10px 15px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
+const Directions = ({ origin, destination }) => {
+  const [routes, setRoutes] = useState([]);
+  const [summaries, setSummaries] = useState([]);
 
-  &:hover {
-    background-color: #0056b3;
-  }
-`;
+  useEffect(() => {
+    if (origin && destination) {
+      // First, fetch the routes based on origin and destination
+      fetch('http://127.0.0.1:5000/get_routes', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ origin, destination }),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.error) {
+            console.error('Backend error:', data.error);
+          } else if (data.routes) {
+            console.log('Routes received:', data.routes);
+            // Select the first two routes
+            const selectedRoutes = data.routes.slice(0, 2);
+            setRoutes(selectedRoutes);
 
-const Modal = styled.div`
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: white;
-  padding: 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  z-index: 200;
-  width: 300px;
-  text-align: center;
-`;
+            // Now call the summarization API with the selected routes.
+            // Adjust the JSON body if your API expects a specific key.
+            fetch('http://127.0.0.1:5000/summarize_routes', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(selectedRoutes),
+            })
+              .then((res) => res.json())
+              .then((summaryData) => {
+                if (summaryData.error) {
+                  console.error('Error summarizing routes:', summaryData.error);
+                } else if (summaryData.summaries) {
+                  // The returned summaries string is assumed to look like:
+                  // "Here are the routes summarized in 10-word blurbs:\n\n1. Take M60-SBS bus to Broadway/W 120 St.\n2. Take M60-SBS bus to Broadway/W 120 St again.\n..."
+                  // We extract only the first two summary lines.
+                  const lines = summaryData.summaries
+                    .split('\n')
+                    .map((line) => line.trim())
+                    .filter((line) => line !== '');
 
-const Overlay = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 199;
-`;
-
-const Directions = ({ routeData, get_closest_camera }) => {
-  const [modalOpen, setModalOpen] = useState(false);
-  const [cameraData, setCameraData] = useState(null);
-
-  const handleButtonClick = async () => {
-    const data = await get_closest_camera();
-    setCameraData(data);
-    setModalOpen(true);
-  };
+                  let route1Summary = '';
+                  let route2Summary = '';
+                  for (let i = 0; i < lines.length; i++) {
+                    if (lines[i].startsWith('1.') && !route1Summary) {
+                      route1Summary = lines[i];
+                    } else if (lines[i].startsWith('2.') && !route2Summary) {
+                      route2Summary = lines[i];
+                    }
+                    if (route1Summary && route2Summary) break;
+                  }
+                  setSummaries([route1Summary, route2Summary]);
+                }
+              })
+              .catch((error) =>
+                console.error('Error fetching summary:', error)
+              );
+          }
+        })
+        .catch((error) => console.error('Error fetching routes:', error));
+    }
+  }, [origin, destination]);
 
   return (
-    <>
-      <Container>
-        {routeData.length === 2 ? (
-          <div>
-            <RouteOption>
-              <h3>Route 1</h3>
-              <p>{routeData[0].legs[0]?.duration || 'N/A'}</p>
-              <p>{routeData[0].legs[0]?.distanceMeters || 'N/A'}</p>
-            </RouteOption>
+    <Container>
+      {routes.length > 0 ? (
+        <div>
+          <RouteOption style={{ color: '#8B0000' }}>
+            <h3>Route 1</h3>
+            <p>{summaries[0] || 'Loading summary...'}</p>
+            <p>Duration: {routes[0].legs[0]?.duration || 'N/A'}</p>
+            <p>Distance: {routes[0].legs[0]?.distanceMeters || 'N/A'}</p>
+          </RouteOption>
 
-            <Hr />
+          <Hr />
 
-            <RouteOption>
-              <h3>Route 2</h3>
-              <p>{routeData[1].legs[0]?.duration || 'N/A'}</p>
-              <p>{routeData[1].legs[0]?.distanceMeters || 'N/A'}</p>
-            </RouteOption>
-          </div>
-        ) : (
-          <p>No routes found.</p>
-        )}
-
-        <Button onClick={handleButtonClick}>Show Camera</Button>
-      </Container>
-
-      {modalOpen && (
-        <>
-          <Overlay onClick={() => setModalOpen(false)} />
-          <Modal>
-            <h3>Closest Camera</h3>
-            {cameraData ? (
-              <>
-                <p>{cameraData.description}</p>
-                <img src={cameraData.url} alt="Traffic Camera" style={{ width: '100%' }} />
-              </>
-            ) : (
-              <p>Loading...</p>
-            )}
-            <button onClick={() => setModalOpen(false)}>Close</button>
-          </Modal>
-        </>
+          <RouteOption style={{ color: '#FF7F7F' }}>
+            <h3>Route 2</h3>
+            <p>{summaries[1] || 'Loading summary...'}</p>
+            <p>Duration: {routes[1].legs[0]?.duration || 'N/A'}</p>
+            <p>Distance: {routes[1].legs[0]?.distanceMeters || 'N/A'}</p>
+          </RouteOption>
+        </div>
+      ) : (
+        <p>Loading routes...</p>
       )}
-    </>
+    </Container>
   );
 };
 
