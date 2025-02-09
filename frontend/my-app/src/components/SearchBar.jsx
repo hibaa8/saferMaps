@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import styled, { css } from 'styled-components';
 
-
-// Container for the search bar
+// Container for the search bar; uses the fixed prop to decide positioning.
 const SearchBarContainer = styled.div`
   ${(props) =>
     props.fixed
       ? css`
           position: fixed;
+          /* These values are not used when placing in a container */
           top: 10px;
           left: 10px;
           width: 200px;
-          background-color: rgba(255, 255, 255, 1);
+          background-color: #fff;
           padding: 10px;
           border-radius: 0;
           box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
@@ -20,7 +20,7 @@ const SearchBarContainer = styled.div`
       : css`
           position: relative;
           width: 100%;
-          background-color: rgba(255, 255, 255, 1);
+          background-color: #fff;
           padding: 10px;
           border-radius: 0;
           box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
@@ -74,7 +74,7 @@ const SuggestionsContainer = styled.div`
           overflow-y: auto;
         `}
 `;
-// Each suggestion item
+
 const SuggestionItem = styled.div`
   padding: 10px;
   cursor: pointer;
@@ -83,13 +83,12 @@ const SuggestionItem = styled.div`
   }
 `;
 
-const SearchBar =  ({ fixed, onPlaceSelected }) => {
-  // State to hold the current input and suggestions
+const SearchBar = ({ fixed, onPlaceSelected, placeholder }) => {
   const [location, setLocation] = useState('');
   const [suggestions, setSuggestions] = useState([]);
   const [autocompleteService, setAutocompleteService] = useState(null);
 
-  // On component mount, initialize the AutocompleteService from Google Maps
+  // Initialize Google Maps AutocompleteService on mount.
   useEffect(() => {
     if (!autocompleteService && window.google && window.google.maps && window.google.maps.places) {
       const service = new window.google.maps.places.AutocompleteService();
@@ -97,17 +96,14 @@ const SearchBar =  ({ fixed, onPlaceSelected }) => {
     }
   }, [autocompleteService]);
 
-  // Called every time the user types in the input
   const handleInputChange = (e) => {
     const inputValue = e.target.value;
     setLocation(inputValue);
 
-    // If we have a value and the AutocompleteService is ready...
     if (autocompleteService && inputValue) {
       autocompleteService.getPlacePredictions(
         { input: inputValue },
         (predictions, status) => {
-          // Check if the request was successful and predictions exist
           if (
             status === window.google.maps.places.PlacesServiceStatus.OK &&
             predictions
@@ -123,21 +119,17 @@ const SearchBar =  ({ fixed, onPlaceSelected }) => {
     }
   };
 
-  // When a suggestion is clicked, update the input and clear suggestions
   const handleSuggestionClick = (suggestion) => {
     setLocation(suggestion.description);
     setSuggestions([]);
-    // Optionally, trigger further actions like an API search
     if (onPlaceSelected) {
       onPlaceSelected(suggestion.description);
     }
   };
 
-  // Optional: function to perform search when the user hits Enter
   const handleSearch = () => {
     if (location) {
       console.log('Search triggered for:', location);
-      // Implement further search logic (e.g., fetching detailed place info)
       setSuggestions([]);
     }
   };
@@ -154,11 +146,9 @@ const SearchBar =  ({ fixed, onPlaceSelected }) => {
               handleSearch();
             }
           }}
-          placeholder="Search Safe Routes"
+          placeholder={placeholder || "Search Safe Routes"}
         />
       </SearchBarContainer>
-
-      {/* Render the suggestions dropdown if there are any suggestions */}
       {suggestions.length > 0 && (
         <SuggestionsContainer fixed={fixed}>
           {suggestions.map((suggestion) => (

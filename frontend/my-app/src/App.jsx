@@ -8,21 +8,58 @@ import logo from './assets/logo.png';
 function App() {
 
   const [origin, setOrigin] = useState(null);
+  const [destination, setDestination] = useState(null);
 
-  // Called when a user selects a place in the fixed SearchBar
   const handleOriginSelect = (place) => {
     setOrigin(place);
   };
 
+  const handleDestinationSelect = (place) => {
+    setDestination(place);
+  };
+
   return (
     <div>
-      {/* Fixed SearchBar for the origin */}
-      <SearchBar fixed={true} onPlaceSelected={handleOriginSelect} />
+      {/* Container for the two search bars */}
+      <div 
+        style={{ 
+          position: 'fixed', 
+          top: '10px', 
+          left: '10px', 
+          zIndex: 1000,
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '10px'
+        }}
+      >
+        <SearchBar 
+          fixed={false} 
+          onPlaceSelected={handleOriginSelect} 
+          placeholder="Enter origin"
+        />
+        <SearchBar 
+          fixed={false} 
+          onPlaceSelected={handleDestinationSelect} 
+          placeholder="Enter destination"
+        />
 
-      {/* Render Directions only if an origin has been selected */}
-      {origin && <Directions origin={origin} />}
+      </div>
+      
+      {/* Directions Panel: appears below the search bars after both are selected */}
+      {origin && destination && (
+        <div 
+          style={{ 
+            position: 'fixed', 
+            top: '100px',  // Adjust to position below the search bars
+            left: '10px', 
+            zIndex: 100,
+          }}
+        >
+          <Directions origin={origin} destination={destination} />
+        </div>
+      )}
 
-      {/* Background map component can use the selected origin */}
+      {/* Background Map Component */}
       <BgMap location={origin} />
       
       <img
