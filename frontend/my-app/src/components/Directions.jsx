@@ -4,18 +4,31 @@ import styled from 'styled-components';
 import SearchBar from './SearchBar';
 
 const Container = styled.div`
-  margin: 20px;
-  position: relative;
-  z-index: 10900;
-  background-color: pink;
+    position: absolute;
+    top: 92px;
+    left: 10px;
+    width: 420px;
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 10;
 `;
 
+const Destination = styled.div`
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    color: #333;
+`;
+
+
 const RouteOption = styled.div`
-  background-color: #f1f3f4; // Light gray background for options
   padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 4px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px; 
+  color: #333;
+  text-align: left; 
 
   h3 {
     font-size: 18px;
@@ -32,12 +45,17 @@ const Directions = () => {
 
   return(
     <Container>
-        <h1>Get Directions</h1>
-
         {/* Start and Destination Inputs */}
-        <div>
-            <SearchBar />
-            Text: destination
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+            <div style={{ display: 'flex', justifyContent: 'center'  }}>
+                <SearchBar style={{ width: '28%' }}/>
+            </div>
+            <br />
+            <br />
+            <br />
+            <Destination>
+                Text: destination
+            </Destination>
         </div>
 
         <button>

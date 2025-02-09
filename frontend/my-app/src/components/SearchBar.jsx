@@ -6,6 +6,7 @@ const SearchBarContainer = styled.div`
   top: 40px;
   left: 10px;
   z-index: 10;
+  width: 200px;
   display: flex;
   align-items: center;
   background-color: rgba(255, 255, 255, 1); /* Lighter, more subtle background */
@@ -39,7 +40,7 @@ const SearchButton = styled.button`
 `;
 
 
-const SearchBar = () => {
+const SearchBar = ({ style }) => {
     const [location, setLocation] = useState('');
 
 
@@ -53,7 +54,7 @@ const SearchBar = () => {
     };
 
     return (
-        <SearchBarContainer>
+        <SearchBarContainer  style={style}>
             <SearchInput
                 type="text"
                 value={location}
@@ -63,7 +64,7 @@ const SearchBar = () => {
                         handleSearch();
                     }
                 }}
-                placeholder="Search Safe Routes"
+                placeholder="Search Location"
             />
             <SearchButton onClick={handleSearch}>Search</SearchButton>
         </SearchBarContainer>
