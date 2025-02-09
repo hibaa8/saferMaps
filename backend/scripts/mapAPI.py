@@ -3,11 +3,13 @@ import requests
 import json
 from dotenv import load_dotenv
 import os
+from flask_cors import CORS
 
 # Load environment variables from the .env file
 load_dotenv()
 
 app = Flask(__name__)
+CORS(app)
 
 def get_public_transit_route(origin, destination, api_key):
     # Define the API endpoint
