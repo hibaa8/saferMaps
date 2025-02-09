@@ -95,17 +95,8 @@ def get_routes():
     # Get the public transit route
     route_info = get_public_transit_route(data['origin'], data['destination'], api_key)
 
-    # Get the walking route
-    walk_route_info = get_walking_directions(data['origin'], data['destination'], api_key)
-
-    # Combine the route information into a single dictionary
-    combined_route_info = {
-        'public_transit_route': route_info,
-        'walking_route': walk_route_info
-    }
-
     # Return the combined route information as JSON
-    return jsonify(combined_route_info), 200
+    return jsonify(route_info), 200
 
 if __name__ == "__main__":
     app.run(debug=True)

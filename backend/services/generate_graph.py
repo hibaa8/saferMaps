@@ -18,11 +18,19 @@ def crime_density(node):
     threshold_distance = 1000  # meters 
 
     for crime in crime_data:
-        crime_lat = float(crime["latitude"])
-        crime_lng = float(crime["longitude"])
-        crime_location = (crime_lat, crime_lng)
-        if geodesic(node, crime_location).meters <= threshold_distance:
-            crime_count += 1
+        if "latitude" in crime and "longitude" in crime:
+            crime_lat = float(crime["latitude"])
+            crime_lng = float(crime["longitude"])
+            crime_location = (crime_lat, crime_lng)
+            if geodesic(node, crime_location).meters <= threshold_distance:
+                crime_count += 1
+        elif "lat_lon" in crime and "coordinates" in crime["lat_lon"]:
+            coordinates = crime["lat_lon"]["coordinates"]
+            crime_lat = float(coordinates[1])
+            crime_lng = float(coordinates[0])
+            crime_location = (crime_lat, crime_lng)
+            if geodesic(node, crime_location).meters <= threshold_distance:
+                crime_count += 1
 
     return crime_count
 
