@@ -79,7 +79,7 @@ const BgMapRoutes = ({ origin, destination }) => {
           lng: latLng.lng(),
         }));
         // Choose color: first route gets #8B0000, second gets #FF7F7F
-        const color = index === 0 ? '#8B0000' : '#FF7F7F';
+        const color = index === 0 ? '#8B0000' : '#D2042D';
 
         return (
           <Polyline
@@ -88,7 +88,7 @@ const BgMapRoutes = ({ origin, destination }) => {
             options={{
               strokeColor: color,
               strokeOpacity: 1.0,
-              strokeWeight: 4,
+              strokeWeight: 6,
             }}
           />
         );
