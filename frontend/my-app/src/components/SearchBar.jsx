@@ -3,10 +3,10 @@ import styled from 'styled-components';
 
 // Container for the search bar
 const SearchBarContainer = styled.div`
-  position: fixed;
+  position: absolute;
   top: 10px;
   left: 10px;
-  z-index: 10;
+  z-index: 1000;
   width: 200px;
   display: flex;
   align-items: center;
