@@ -21,42 +21,6 @@ function App() {
     setDestination(place);
   };
 
-<<<<<<< HEAD
-=======
-  useEffect(() => {
-    // Send request to backend when both origin and destination are selected
-    if (origin && destination) {
-      const fetchData = async () => {
-        try {
-          const response = await fetch('http://127.0.0.1:5000/get_routes', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-              origin: origin,
-              destination: destination,
-            }),
-          });
-
-          if (!response.ok) {
-            throw new Error('Error fetching data');
-          }
-
-          const data = await response.json();
-          console.log('Route data:', data);
-          setResponseData(data);
-          setRoutes(data.routes.length >= 2 ? data.routes.slice(0, 2) : []);
-        } catch (error) {
-          console.error('Error:', error);
-        }
-      };
-
-      fetchData();
-    }
-  }, [origin, destination]);
-
->>>>>>> f1f86822b22f89e027410e3ca51600ffa58264b1
   return (
     <div>
       {/* Container for the two search bars */}

@@ -73,7 +73,6 @@ class RoutePlanner:
                     f_score[neighbor] = tentative_g_score + h_score
                     reached[neighbor] = {"cost": tentative_g_score, "parent": current}
                     heapq.heappush(open_set, (f_score[neighbor], neighbor))
-
         return None, float('inf')  # No path found
 
     def visualize_graph(self, graph, path, title, ax):
@@ -87,33 +86,62 @@ class RoutePlanner:
 
     def find_best_routes(self, json_data):
         route_scores = []
-
+        # for route_index, route in enumerate(json_data["routes"]):
+        #     route_graph = RouteGraph(route)
+        #     path, total_f_score = self.a_star_search(route_graph.graph, route_graph.start_node, route_graph.goal_node)
+        #     if path:
+        #         total_distance = sum(route_graph.graph[path[i]][path[i + 1]]['weight'] for i in range(len(path) - 1))
+        #         total_crime = sum(self.crime_density(node) for node in path)
+        #     else:
+        #         total_distance = total_crime = total_f_score = float('inf')
+        #     route_scores.append((route_index, path, total_distance, total_crime, total_f_score, route_graph.graph))
         for route_index, route in enumerate(json_data["routes"]):
             route_graph = RouteGraph(route)
             path, total_f_score = self.a_star_search(route_graph.graph, route_graph.start_node, route_graph.goal_node)
-
+            
             if path:
                 total_distance = sum(route_graph.graph[path[i]][path[i + 1]]['weight'] for i in range(len(path) - 1))
                 total_crime = sum(self.crime_density(node) for node in path)
             else:
                 total_distance = total_crime = total_f_score = float('inf')
 
-            route_scores.append((route_index, path, total_distance, total_crime, total_f_score, route_graph.graph))
+            # Store route index and f_score
+            route_scores.append((route_index, total_f_score))
+
+        # Sort routes by f_score and get the indices of the best 2
+        sorted_route_indices = [route_index for route_index, _ in sorted(route_scores, key=lambda x: x[1])[:2]]
+
+        # Retrieve the original routes corresponding to the best 2 indices
+        best_routes = [json_data["routes"][index] for index in sorted_route_indices]
+
+        return best_routes
+            # Append route details to route_scores
+            # route_scores.append({
+            #     "route_index": route_index,
+            #     "path": path,
+            #     "total_distance": total_distance,
+            #     "total_crime": total_crime,
+            #     "f_score": total_f_score,
+            #     "route_graph": route_graph.graph,
+            #     "encoded_polyline": route.get("polyline", {}).get("encodedPolyline", None)
+            # })
+
 
         # Sort the routes based on the f_score and select the top 2
-        route_scores.sort(key=lambda x: x[4])  # Sort by f_score
-        best_routes = route_scores[:2]  # Top 2 routes
+        # route_scores.sort(key=lambda x: x[4])  # Sort by f_score
+        # best_routes = route_scores[:2]  # Top 2 routes
+        # return best_routes
 
         # Visualization
-        fig, axes = plt.subplots(1, len(best_routes), figsize=(15, 5))
-        axes = np.atleast_1d(axes)
+        # fig, axes = plt.subplots(1, len(best_routes), figsize=(15, 5))
+        # axes = np.atleast_1d(axes)
 
-        for i, (route_index, path, total_distance, total_crime, total_f_score, graph) in enumerate(best_routes):
-            self.visualize_graph(graph, path, f"Route {route_index + 1}\nDistance: {total_distance:.2f}m\nCrime: {total_crime}\nTotal f_score: {total_f_score:.2f}", axes[i])
+        # for i, (route_index, path, total_distance, total_crime, total_f_score, graph) in enumerate(best_routes):
+        #     self.visualize_graph(graph, path, f"Route {route_index + 1}\nDistance: {total_distance:.2f}m\nCrime: {total_crime}\nTotal f_score: {total_f_score:.2f}", axes[i])
 
-            print(f"Route {route_index + 1}: Distance = {total_distance:.2f} meters, Crime Density = {total_crime}, f_score = {total_f_score:.2f}")
+        #     print(f"Route {route_index + 1}: Distance = {total_distance:.2f} meters, Crime Density = {total_crime}, f_score = {total_f_score:.2f}")
 
-        plt.show()
+        # plt.show()
 
         # Return the two best routes
         return [(route[0], route[1], route[4]) for route in best_routes]  # Return (route_index, path, f_score)
