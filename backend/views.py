@@ -5,7 +5,7 @@ from flask_login import login_required, current_user
 from bson import ObjectId 
 from datetime import datetime
 import requests
-from services.groq_image import GroqImage
+from services.GroqImage import GroqImage
 from services.MapAPI import MapAPI
 from services.RoutePlanner import RoutePlanner
 import json
