@@ -21,6 +21,8 @@ function App() {
     setDestination(place);
   };
 
+<<<<<<< HEAD
+=======
   useEffect(() => {
     // Send request to backend when both origin and destination are selected
     if (origin && destination) {
@@ -54,6 +56,7 @@ function App() {
     }
   }, [origin, destination]);
 
+>>>>>>> f1f86822b22f89e027410e3ca51600ffa58264b1
   return (
     <div>
       {/* Container for the two search bars */}
