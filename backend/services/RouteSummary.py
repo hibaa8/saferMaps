@@ -18,7 +18,7 @@ class routeSummary:
         # Define the prompt
         prompt = (
             "Take the JSON file, summarize each of the routes as a short "
-            "10-word blurb, such as 'via 1 train to Canal Street' for a route that leads the user into the 1 train to south ferry, but they exit at canal street. "
+            "10-word blurb, such as 'via 1 train to Canal Street' for a route that leads the user into the 1 train to south ferry, but they exit at canal street. Each route summary is a different entry into a json file that you will return."
         )
 
         # Prepare the messages to send to Groq
