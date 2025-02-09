@@ -9,7 +9,7 @@ const containerStyle = {
 
 const BgMapRoutes = ({ origin, destination }) => {
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: VITE_GOOGLE_API_KEY, // Replace with your actual API key
+    googleMapsApiKey: import.meta.VITE_GOOGLE_API_KEY, // Replace with your actual API key
     libraries: ['geometry'], // Load the geometry library to decode polylines
   });
 

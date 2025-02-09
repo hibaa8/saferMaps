@@ -31,7 +31,10 @@ const RouteOption = styled.div`
   padding: 5px;
   margin-bottom: 10px; 
   color: #333;
-  text-align: left; 
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
 
   h3 {
     font-size: 18px;
@@ -44,25 +47,41 @@ const RouteOption = styled.div`
   }
 `;
 
-const Directions = ({ origin, destination }) => {
+const formatDuration = (duration) => {
+  if (!duration) return 'N/A';
+  const seconds = parseInt(duration.replace('s', ''), 10);
+  const minutes = Math.floor(seconds / 60);
+  const remainingSeconds = seconds % 60;
+  return `${minutes} min ${remainingSeconds} sec`;
+};
+
+const formatDistance = (distanceMeters) => {
+  if (!distanceMeters) return 'N/A';
+  return `${(distanceMeters / 1000).toFixed(1)} km`;
+};
+
+const Directions = ({ routeData }) => {
   return (
     <Container>
+      {routeData.length === 2 ? (
+        <div>
+          <RouteOption>
+            <h3>Route 1</h3>
+            <p>{`${formatDuration(routeData[0].legs[0]?.duration)}`}</p>
+            <p>{`${formatDistance(routeData[0].legs[0]?.distanceMeters)}`}</p>
+          </RouteOption>
+          
+          <Hr />
 
-      <div>
-        <RouteOption>
-          <h3>Route 1</h3>
-          <p>Duration: N/A</p>
-          <p>Distance: N/A</p>
-        </RouteOption>
-        
-        <Hr />
-
-        <RouteOption>
-          <h3>Route 2</h3>
-          <p>Duration: N/A</p>
-          <p>Distance: N/A</p>
-        </RouteOption>
-      </div>
+          <RouteOption>
+            <h3>Route 2</h3>
+            <p>{`${formatDuration(routeData[1].legs[0]?.duration)}`}</p>
+            <p>{`${formatDistance(routeData[1].legs[0]?.distanceMeters)}`}</p>
+          </RouteOption>
+        </div>
+      ) : (
+        <p>No routes found.</p>
+      )}
     </Container>
   );
 };
