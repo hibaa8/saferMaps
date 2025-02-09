@@ -1,6 +1,6 @@
 // App.jsx
 import './App.css';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import SearchBar from './components/SearchBar';
 import Directions from './components/Directions';
 import logo from './assets/logo.png';
@@ -10,6 +10,7 @@ function App() {
   const [origin, setOrigin] = useState(null);
   const [destination, setDestination] = useState(null);
   const [responseData, setResponseData] = useState(null);
+  const [routes, setRoutes] = useState([]);
 
   const handleOriginSelect = (place) => {
     // Expecting 'place' to be an object like: { lat: 40.7128, lng: -74.0060 }
@@ -20,6 +21,8 @@ function App() {
     setDestination(place);
   };
 
+<<<<<<< HEAD
+=======
   useEffect(() => {
     // Send request to backend when both origin and destination are selected
     if (origin && destination) {
@@ -43,6 +46,7 @@ function App() {
           const data = await response.json();
           console.log('Route data:', data);
           setResponseData(data);
+          setRoutes(data.routes.length >= 2 ? data.routes.slice(0, 2) : []);
         } catch (error) {
           console.error('Error:', error);
         }
@@ -52,6 +56,7 @@ function App() {
     }
   }, [origin, destination]);
 
+>>>>>>> f1f86822b22f89e027410e3ca51600ffa58264b1
   return (
     <div>
       {/* Container for the two search bars */}
@@ -80,7 +85,7 @@ function App() {
             zIndex: 100,
           }}
         >
-          <Directions origin={origin} destination={destination} />
+          <Directions routeData={routes} />
         </div>
       )}
 
@@ -98,6 +103,30 @@ function App() {
           height: 'auto',
         }}
       />
+
+      {/* "Powered by Groq" Link */}
+      <a href="https://groq.com" target="_blank" rel="noopener noreferrer" 
+         style={{
+           position: 'absolute',
+           top: '75px',
+           width: '70px',
+           height: 'auto',
+           right: '20px',
+           display: 'flex',
+           alignItems: 'center',
+           gap: '8px',
+         }}
+      >
+        <img
+          src="https://groq.com/wp-content/uploads/2024/03/PBG-mark1-color.svg"
+          alt="Powered by Groq for fast inference."
+          style={{
+            width: '120px',
+            height: 'auto',
+          }}
+        />
+      </a>
+
     </div>
   );
 }
