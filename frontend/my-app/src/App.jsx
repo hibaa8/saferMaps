@@ -1,19 +1,18 @@
+// App.jsx
 import './App.css';
-import React, { useState, useEffect } from 'react';
-import BgMap from './components/BgMap';
+import React, { useState } from 'react';
 import SearchBar from './components/SearchBar';
 import Directions from './components/Directions';
 import logo from './assets/logo.png';
-import BgMapJS from './components/BgMapJS';
-import TestAPI from './components/TestAPI';
+import BgMapRoutes from './components/BgMapRoutes';
 
 function App() {
-
   const [origin, setOrigin] = useState(null);
   const [destination, setDestination] = useState(null);
   const [responseData, setResponseData] = useState(null);
 
   const handleOriginSelect = (place) => {
+    // Expecting 'place' to be an object like: { lat: 40.7128, lng: -74.0060 }
     setOrigin(place);
   };
 
@@ -56,37 +55,28 @@ function App() {
   return (
     <div>
       {/* Container for the two search bars */}
-      <div 
-        style={{ 
-          position: 'fixed', 
-          top: '10px', 
-          left: '10px', 
+      <div
+        style={{
+          position: 'fixed',
+          top: '10px',
+          left: '10px',
           zIndex: 1000,
           display: 'flex',
           flexDirection: 'column',
-          gap: '10px'
+          gap: '10px',
         }}
       >
-        <SearchBar 
-          fixed={false} 
-          onPlaceSelected={handleOriginSelect} 
-          placeholder="Enter origin"
-        />
-        <SearchBar 
-          fixed={false} 
-          onPlaceSelected={handleDestinationSelect} 
-          placeholder="Enter destination"
-        />
-
+        <SearchBar onPlaceSelected={handleOriginSelect} placeholder="Enter origin" />
+        <SearchBar onPlaceSelected={handleDestinationSelect} placeholder="Enter destination" />
       </div>
-      
-      {/* Directions Panel: appears below the search bars after both are selected */}
+
+      {/* Directions Panel (if needed) */}
       {origin && destination && (
-        <div 
-          style={{ 
-            position: 'fixed', 
-            top: '100px',  // Adjust to position below the search bars
-            left: '10px', 
+        <div
+          style={{
+            position: 'fixed',
+            top: '100px', // Adjust as needed
+            left: '10px',
             zIndex: 100,
           }}
         >
@@ -94,11 +84,11 @@ function App() {
         </div>
       )}
 
-      {/* Background Map Component */}
-      <BgMap location={origin} />
-      
+      {/* Background Map with Routes */}
+       <BgMapRoutes origin={origin} destination={destination} /> 
+
       <img
-        src={logo}  // Use the path of the image
+        src={logo}
         alt="Top Right Logo"
         style={{
           position: 'absolute',
@@ -109,8 +99,31 @@ function App() {
         }}
       />
 
+      {/* "Powered by Groq" Link */}
+      <a href="https://groq.com" target="_blank" rel="noopener noreferrer" 
+         style={{
+           position: 'absolute',
+           top: '75px',
+           width: '70px',
+           height: 'auto',
+           right: '20px',
+           display: 'flex',
+           alignItems: 'center',
+           gap: '8px',
+         }}
+      >
+        <img
+          src="https://groq.com/wp-content/uploads/2024/03/PBG-mark1-color.svg"
+          alt="Powered by Groq for fast inference."
+          style={{
+            width: '120px',
+            height: 'auto',
+          }}
+        />
+      </a>
+
     </div>
-  )
+  );
 }
 
 export default App;

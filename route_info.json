@@ -1,0 +1,1257 @@
+{
+    "routes": [
+        {
+            "legs": [
+                {
+                    "distanceMeters": 33337,
+                    "duration": "3472s",
+                    "staticDuration": "3472s",
+                    "polyline": {
+                        "encodedPolyline": "s~`xFlambMeJcApAjBv[~SbAb@`@LzBT~ERfAHlARdAXhChAdBdA`{@xj@pKtIxQdM|CnBhBt@|Ab@dFlAzHvAvBZhAL|DVxSVpC?r\\Yn@MfCu@j@Gl@AnHj@fC\\|@P|C~@pEpBnLvGjBx@pBl@jGzAfA\\hAj@ll@|_@Uh@fAdGyAzD_Bu@nCcMji@qcB^_BRqBrLmxBDsBB}BGwCOoCWoCe@mDc@uBuGaVeOef@sAsEq@wCiA}FmAaIeAoIePczAU{B]sEs@gHSoDG{BGuA?uCHiDNmCNiBPuAf@sCl@aCp@wBzAqDvAsCjCcEzAmBpGeHzCeDxPoR~DuEz@u@rE}ExD}EdBoCjA{B`AoBhK}ZrJoZ`DsKtHkYfIa[l@sBzCqLbNwg@hGmUzGoWrHiYrU}|@r@iCjAqDjDoIrCoF|@{A`CoDfB}BpDgErC}ChFeGhSoU|EwF|[}^tJeLpB{BpCwD|AcCtAiC~@wB`AoCv@yCReAX}BJiBDkCG}BMcBcA_JKyAg@sEaD{PcA^Yv@j@hCnFqAJGnArEj@jDtAzE|@zDb@`Ab@n@h@\\p@JdA?d@KjCwAnUqKf_@kQjL{Ez_@_O`]iMfBe@lBc@nAO~BOjEMjHDrDLv@FtAXdAXpCnAnCxAbCdAtGlBhBVjEXvE?tMFz@D~@X`@\\b@x@lArEb@z@n@r@zD|CpB|@~A\\bADbAAhBUjBa@hC}@`Ae@xIeFbH}EfEiDxCqC`EmEtAcBhAkBv@aB`AuCr@aD^_CLiBHeIM}FSqFOqGFgAL{@V{@^u@j@k@z@g@dAoA`Aq@FN"
+                    },
+                    "startLocation": {
+                        "latLng": {
+                            "latitude": 40.806342699999995,
+                            "longitude": -73.9639078
+                        }
+                    },
+                    "endLocation": {
+                        "latLng": {
+                            "latitude": 40.64362,
+                            "longitude": -73.78944
+                        }
+                    },
+                    "steps": [
+                        {
+                            "distanceMeters": 201,
+                            "staticDuration": "23s",
+                            "polyline": {
+                                "encodedPolyline": "s~`xFlambMeJcA"
+                            },
+                            "startLocation": {
+                                "latLng": {
+                                    "latitude": 40.806342699999995,
+                                    "longitude": -73.9639078
+                                }
+                            },
+                            "endLocation": {
+                                "latLng": {
+                                    "latitude": 40.808133999999995,
+                                    "longitude": -73.9635701
+                                }
+                            },
+                            "navigationInstruction": {},
+                            "localizedValues": {
+                                "distance": {
+                                    "text": "0.1 mi"
+                                },
+                                "staticDuration": {
+                                    "text": "1 min"
+                                }
+                            },
+                            "travelMode": "WALK"
+                        },
+                        {
+                            "distanceMeters": 64,
+                            "staticDuration": "95s",
+                            "polyline": {
+                                "encodedPolyline": "yiaxFh_mbMpAjB"
+                            },
+                            "startLocation": {
+                                "latLng": {
+                                    "latitude": 40.808133999999995,
+                                    "longitude": -73.9635701
+                                }
+                            },
+                            "endLocation": {
+                                "latLng": {
+                                    "latitude": 40.807719999999996,
+                                    "longitude": -73.964111
+                                }
+                            },
+                            "navigationInstruction": {
+                                "instructions": "Take entrance Broadway & 116th St at NE corner"
+                            },
+                            "localizedValues": {
+                                "distance": {
+                                    "text": "210 ft"
+                                },
+                                "staticDuration": {
+                                    "text": "2 mins"
+                                }
+                            },
+                            "travelMode": "WALK"
+                        },
+                        {
+                            "distanceMeters": 3621,
+                            "staticDuration": "510s",
+                            "polyline": {
+                                "encodedPolyline": "ggaxFtbmbMv[~SbAb@`@LzBT~ERfAHlARdAXhChAdBdA`{@xj@pKtIxQdM|CnBhBt@|Ab@dFlAzHvAvBZhAL"
+                            },
+                            "startLocation": {
+                                "latLng": {
+                                    "latitude": 40.807719999999996,
+                                    "longitude": -73.964111
+                                }
+                            },
+                            "endLocation": {
+                                "latLng": {
+                                    "latitude": 40.778453999999996,
+                                    "longitude": -73.981972
+                                }
+                            },
+                            "navigationInstruction": {
+                                "instructions": "Subway towards South Ferry"
+                            },
+                            "localizedValues": {
+                                "distance": {
+                                    "text": "2.2 mi"
+                                },
+                                "staticDuration": {
+                                    "text": "9 mins"
+                                }
+                            },
+                            "transitDetails": {
+                                "stopDetails": {
+                                    "arrivalStop": {
+                                        "name": "72 St",
+                                        "location": {
+                                            "latLng": {
+                                                "latitude": 40.778453999999996,
+                                                "longitude": -73.981972
+                                            }
+                                        }
+                                    },
+                                    "arrivalTime": "2025-02-08T22:24:36Z",
+                                    "departureStop": {
+                                        "name": "116 St - Columbia University",
+                                        "location": {
+                                            "latLng": {
+                                                "latitude": 40.807719999999996,
+                                                "longitude": -73.964111
+                                            }
+                                        }
+                                    },
+                                    "departureTime": "2025-02-08T22:16:06Z"
+                                },
+                                "localizedValues": {
+                                    "arrivalTime": {
+                                        "time": {
+                                            "text": "5:24\u202fPM"
+                                        },
+                                        "timeZone": "America/New_York"
+                                    },
+                                    "departureTime": {
+                                        "time": {
+                                            "text": "5:16\u202fPM"
+                                        },
+                                        "timeZone": "America/New_York"
+                                    }
+                                },
+                                "headsign": "South Ferry",
+                                "headway": "300s",
+                                "transitLine": {
+                                    "agencies": [
+                                        {
+                                            "name": "MTA New York City Transit",
+                                            "phoneNumber": "+1 718-330-1234",
+                                            "uri": "http://www.mta.info/"
+                                        }
+                                    ],
+                                    "name": "1 Train (Broadway-7 Av Local)",
+                                    "uri": "https://new.mta.info/document/9426",
+                                    "color": "#ee352e",
+                                    "iconUri": "//maps.gstatic.com/mapfiles/transit/iw2/6/us-ny-mta/1.png",
+                                    "nameShort": "1 Line",
+                                    "textColor": "#ffffff",
+                                    "vehicle": {
+                                        "name": {
+                                            "text": "Subway"
+                                        },
+                                        "type": "SUBWAY",
+                                        "iconUri": "//maps.gstatic.com/mapfiles/transit/iw2/6/subway2.png"
+                                    }
+                                },
+                                "stopCount": 7
+                            },
+                            "travelMode": "TRANSIT"
+                        },
+                        {
+                            "staticDuration": "0s",
+                            "polyline": {
+                                "encodedPolyline": "ip{wFhrpbM"
+                            },
+                            "startLocation": {
+                                "latLng": {
+                                    "latitude": 40.778453999999996,
+                                    "longitude": -73.981972
+                                }
+                            },
+                            "endLocation": {
+                                "latLng": {
+                                    "latitude": 40.778453999999996,
+                                    "longitude": -73.981972
+                                }
+                            },
+                            "navigationInstruction": {},
+                            "localizedValues": {
+                                "distance": {
+                                    "text": "1 ft"
+                                },
+                                "staticDuration": {
+                                    "text": "1 min"
+                                }
+                            },
+                            "travelMode": "WALK"
+                        },
+                        {
+                            "distanceMeters": 3303,
+                            "staticDuration": "300s",
+                            "polyline": {
+                                "encodedPolyline": "ip{wFhrpbM|DVxSVpC?r\\Yn@MfCu@j@Gl@AnHj@fC\\|@P|C~@pEpBnLvGjBx@pBl@jGzAfA\\hAj@ll@|_@"
+                            },
+                            "startLocation": {
+                                "latLng": {
+                                    "latitude": 40.778453999999996,
+                                    "longitude": -73.981972
+                                }
+                            },
+                            "endLocation": {
+                                "latLng": {
+                                    "latitude": 40.750374,
+                                    "longitude": -73.991058
+                                }
+                            },
+                            "navigationInstruction": {
+                                "instructions": "Subway towards New Lots Av"
+                            },
+                            "localizedValues": {
+                                "distance": {
+                                    "text": "2.1 mi"
+                                },
+                                "staticDuration": {
+                                    "text": "5 mins"
+                                }
+                            },
+                            "transitDetails": {
+                                "stopDetails": {
+                                    "arrivalStop": {
+                                        "name": "34 St-Penn Station",
+                                        "location": {
+                                            "latLng": {
+                                                "latitude": 40.750374,
+                                                "longitude": -73.991058
+                                            }
+                                        }
+                                    },
+                                    "arrivalTime": "2025-02-08T22:30:13Z",
+                                    "departureStop": {
+                                        "name": "72 St",
+                                        "location": {
+                                            "latLng": {
+                                                "latitude": 40.778453999999996,
+                                                "longitude": -73.981972
+                                            }
+                                        }
+                                    },
+                                    "departureTime": "2025-02-08T22:25:13Z"
+                                },
+                                "localizedValues": {
+                                    "arrivalTime": {
+                                        "time": {
+                                            "text": "5:30\u202fPM"
+                                        },
+                                        "timeZone": "America/New_York"
+                                    },
+                                    "departureTime": {
+                                        "time": {
+                                            "text": "5:25\u202fPM"
+                                        },
+                                        "timeZone": "America/New_York"
+                                    }
+                                },
+                                "headsign": "New Lots Av",
+                                "headway": "720s",
+                                "transitLine": {
+                                    "agencies": [
+                                        {
+                                            "name": "MTA New York City Transit",
+                                            "phoneNumber": "+1 718-330-1234",
+                                            "uri": "http://www.mta.info/"
+                                        }
+                                    ],
+                                    "name": "3 Train (7 Av Express)",
+                                    "uri": "https://new.mta.info/document/9436",
+                                    "color": "#ee352e",
+                                    "iconUri": "//maps.gstatic.com/mapfiles/transit/iw2/6/us-ny-mta/3.png",
+                                    "nameShort": "3 Line",
+                                    "textColor": "#ffffff",
+                                    "vehicle": {
+                                        "name": {
+                                            "text": "Subway"
+                                        },
+                                        "type": "SUBWAY",
+                                        "iconUri": "//maps.gstatic.com/mapfiles/transit/iw2/6/subway2.png"
+                                    }
+                                },
+                                "stopCount": 3
+                            },
+                            "travelMode": "TRANSIT"
+                        },
+                        {
+                            "distanceMeters": 21,
+                            "staticDuration": "22s",
+                            "polyline": {
+                                "encodedPolyline": "y`vwFbkrbMUh@"
+                            },
+                            "startLocation": {
+                                "latLng": {
+                                    "latitude": 40.750374,
+                                    "longitude": -73.991058
+                                }
+                            },
+                            "endLocation": {
+                                "latLng": {
+                                    "latitude": 40.750482,
+                                    "longitude": -73.9912666
+                                }
+                            },
+                            "navigationInstruction": {
+                                "instructions": "Take exit 7th Ave & 33rd St at NW corner"
+                            },
+                            "localizedValues": {
+                                "distance": {
+                                    "text": "69 ft"
+                                },
+                                "staticDuration": {
+                                    "text": "1 min"
+                                }
+                            },
+                            "travelMode": "WALK"
+                        },
+                        {
+                            "distanceMeters": 117,
+                            "staticDuration": "117s",
+                            "polyline": {
+                                "encodedPolyline": "oavwFllrbMfAdG"
+                            },
+                            "startLocation": {
+                                "latLng": {
+                                    "latitude": 40.750482,
+                                    "longitude": -73.9912666
+                                }
+                            },
+                            "endLocation": {
+                                "latLng": {
+                                    "latitude": 40.7501156,
+                                    "longitude": -73.9925799
+                                }
+                            },
+                            "navigationInstruction": {},
+                            "localizedValues": {
+                                "distance": {
+                                    "text": "384 ft"
+                                },
+                                "staticDuration": {
+                                    "text": "2 mins"
+                                }
+                            },
+                            "travelMode": "WALK"
+                        },
+                        {
+                            "distanceMeters": 18276,
+                            "staticDuration": "1260s",
+                            "polyline": {
+                                "encodedPolyline": "abvwFnzrbM_Bu@nCcMji@qcB^_BRqBrLmxBDsBB}BGwCOoCWoCe@mDc@uBuGaVeOef@sAsEq@wCiA}FmAaIeAoIePczAU{B]sEs@gHSoDG{BGuA?uCHiDNmCNiBPuAf@sCl@aCp@wBzAqDvAsCjCcEzAmBpGeHzCeDxPoR~DuEz@u@rE}ExD}EdBoCjA{B`AoBhK}ZrJoZ`DsKtHkYfIa[l@sBzCqLbNwg@hGmUzGoWrHiYrU}|@r@iCjAqDjDoIrCoF|@{A`CoDfB}BpDgErC}ChFeGhSoU|EwF|[}^tJeLpB{BpCwD|AcCtAiC~@wB`AoCv@yCReAX}BJiBDkCG}BMcBcA_JKyAg@sEaD{PcA^"
+                            },
+                            "startLocation": {
+                                "latLng": {
+                                    "latitude": 40.750568,
+                                    "longitude": -73.993519
+                                }
+                            },
+                            "endLocation": {
+                                "latLng": {
+                                    "latitude": 40.700226,
+                                    "longitude": -73.807861
+                                }
+                            },
+                            "navigationInstruction": {
+                                "instructions": "Train towards Huntington"
+                            },
+                            "localizedValues": {
+                                "distance": {
+                                    "text": "11.4 mi"
+                                },
+                                "staticDuration": {
+                                    "text": "21 mins"
+                                }
+                            },
+                            "transitDetails": {
+                                "stopDetails": {
+                                    "arrivalStop": {
+                                        "name": "Jamaica",
+                                        "location": {
+                                            "latLng": {
+                                                "latitude": 40.700226,
+                                                "longitude": -73.807861
+                                            }
+                                        }
+                                    },
+                                    "arrivalTime": "2025-02-08T22:57:00Z",
+                                    "departureStop": {
+                                        "name": "Penn Station",
+                                        "location": {
+                                            "latLng": {
+                                                "latitude": 40.750568,
+                                                "longitude": -73.993519
+                                            }
+                                        }
+                                    },
+                                    "departureTime": "2025-02-08T22:36:00Z"
+                                },
+                                "localizedValues": {
+                                    "arrivalTime": {
+                                        "time": {
+                                            "text": "5:57\u202fPM"
+                                        },
+                                        "timeZone": "America/New_York"
+                                    },
+                                    "departureTime": {
+                                        "time": {
+                                            "text": "5:36\u202fPM"
+                                        },
+                                        "timeZone": "America/New_York"
+                                    }
+                                },
+                                "headsign": "Huntington",
+                                "transitLine": {
+                                    "agencies": [
+                                        {
+                                            "name": "Long Island Rail Road",
+                                            "phoneNumber": "+1 718-217-5477",
+                                            "uri": "http://www.mta.info/lirr"
+                                        }
+                                    ],
+                                    "name": "Port Jefferson Branch",
+                                    "color": "#006ec7",
+                                    "nameShort": "LIRR",
+                                    "textColor": "#ffffff",
+                                    "vehicle": {
+                                        "name": {
+                                            "text": "Train"
+                                        },
+                                        "type": "HEAVY_RAIL",
+                                        "iconUri": "//maps.gstatic.com/mapfiles/transit/iw2/6/rail2.png"
+                                    }
+                                },
+                                "stopCount": 3
+                            },
+                            "travelMode": "TRANSIT"
+                        },
+                        {
+                            "distanceMeters": 63,
+                            "staticDuration": "63s",
+                            "polyline": {
+                                "encodedPolyline": "ghlwFzsnaMj@hC"
+                            },
+                            "startLocation": {
+                                "latLng": {
+                                    "latitude": 40.700356299999996,
+                                    "longitude": -73.8081419
+                                }
+                            },
+                            "endLocation": {
+                                "latLng": {
+                                    "latitude": 40.7001352,
+                                    "longitude": -73.80883089999999
+                                }
+                            },
+                            "navigationInstruction": {},
+                            "localizedValues": {
+                                "distance": {
+                                    "text": "207 ft"
+                                },
+                                "staticDuration": {
+                                    "text": "1 min"
+                                }
+                            },
+                            "travelMode": "WALK"
+                        },
+                        {
+                            "distanceMeters": 7671,
+                            "staticDuration": "480s",
+                            "polyline": {
+                                "encodedPolyline": "k_lwFrunaMJGnArEj@jDtAzE|@zDb@`Ab@n@h@\\p@JdA?d@KjCwAnUqKf_@kQjL{Ez_@_O`]iMfBe@lBc@nAO~BOjEMjHDrDLv@FtAXdAXpCnAnCxAbCdAtGlBhBVjEXvE?tMFz@D~@X`@\\b@x@lArEb@z@n@r@zD|CpB|@~A\\bADbAAhBUjBa@hC}@`Ae@xIeFbH}EfEiDxCqC`EmEtAcBhAkBv@aB`AuCr@aD^_CLiBHeIM}FSqFOqGFgAL{@V{@^u@j@k@z@g@dAoA`Aq@FN"
+                            },
+                            "startLocation": {
+                                "latLng": {
+                                    "latitude": 40.69894,
+                                    "longitude": -73.80842
+                                }
+                            },
+                            "endLocation": {
+                                "latLng": {
+                                    "latitude": 40.64362,
+                                    "longitude": -73.78944
+                                }
+                            },
+                            "navigationInstruction": {
+                                "instructions": "Light rail towards Jamaica Station"
+                            },
+                            "localizedValues": {
+                                "distance": {
+                                    "text": "4.8 mi"
+                                },
+                                "staticDuration": {
+                                    "text": "8 mins"
+                                }
+                            },
+                            "transitDetails": {
+                                "stopDetails": {
+                                    "arrivalStop": {
+                                        "name": "Terminal 1",
+                                        "location": {
+                                            "latLng": {
+                                                "latitude": 40.64362,
+                                                "longitude": -73.78944
+                                            }
+                                        }
+                                    },
+                                    "arrivalTime": "2025-02-08T23:12:00Z",
+                                    "departureStop": {
+                                        "name": "Jamaica",
+                                        "location": {
+                                            "latLng": {
+                                                "latitude": 40.69894,
+                                                "longitude": -73.80842
+                                            }
+                                        }
+                                    },
+                                    "departureTime": "2025-02-08T23:04:00Z"
+                                },
+                                "localizedValues": {
+                                    "arrivalTime": {
+                                        "time": {
+                                            "text": "6:12\u202fPM"
+                                        },
+                                        "timeZone": "America/New_York"
+                                    },
+                                    "departureTime": {
+                                        "time": {
+                                            "text": "6:04\u202fPM"
+                                        },
+                                        "timeZone": "America/New_York"
+                                    }
+                                },
+                                "headsign": "Jamaica Station",
+                                "transitLine": {
+                                    "agencies": [
+                                        {
+                                            "name": "JFK Airtrain",
+                                            "uri": "https://www.jfkairport.com/to-from-airport/air-train"
+                                        }
+                                    ],
+                                    "name": "Jamaica Train",
+                                    "color": "#d0021b",
+                                    "nameShort": "Jamaica AirTrain",
+                                    "textColor": "#ffffff",
+                                    "vehicle": {
+                                        "name": {
+                                            "text": "Light rail"
+                                        },
+                                        "type": "TRAM",
+                                        "iconUri": "//maps.gstatic.com/mapfiles/transit/iw2/6/tram2.png"
+                                    }
+                                },
+                                "stopCount": 3
+                            },
+                            "travelMode": "TRANSIT"
+                        }
+                    ],
+                    "localizedValues": {
+                        "distance": {
+                            "text": "20.7 mi"
+                        },
+                        "duration": {
+                            "text": "58 mins"
+                        },
+                        "staticDuration": {
+                            "text": "58 mins"
+                        }
+                    },
+                    "stepsOverview": {
+                        "multiModalSegments": [
+                            {
+                                "stepStartIndex": 0,
+                                "stepEndIndex": 1,
+                                "navigationInstruction": {
+                                    "instructions": "Walk to 116 St - Columbia University"
+                                },
+                                "travelMode": "WALK"
+                            },
+                            {
+                                "stepStartIndex": 2,
+                                "stepEndIndex": 2,
+                                "navigationInstruction": {
+                                    "instructions": "Subway towards South Ferry"
+                                },
+                                "travelMode": "TRANSIT"
+                            },
+                            {
+                                "stepStartIndex": 3,
+                                "stepEndIndex": 3,
+                                "navigationInstruction": {
+                                    "instructions": "Walk to 72 St"
+                                },
+                                "travelMode": "WALK"
+                            },
+                            {
+                                "stepStartIndex": 4,
+                                "stepEndIndex": 4,
+                                "navigationInstruction": {
+                                    "instructions": "Subway towards New Lots Av"
+                                },
+                                "travelMode": "TRANSIT"
+                            },
+                            {
+                                "stepStartIndex": 5,
+                                "stepEndIndex": 6,
+                                "navigationInstruction": {
+                                    "instructions": "Walk to Penn Station"
+                                },
+                                "travelMode": "WALK"
+                            },
+                            {
+                                "stepStartIndex": 7,
+                                "stepEndIndex": 7,
+                                "navigationInstruction": {
+                                    "instructions": "Train towards Huntington"
+                                },
+                                "travelMode": "TRANSIT"
+                            },
+                            {
+                                "stepStartIndex": 8,
+                                "stepEndIndex": 8,
+                                "navigationInstruction": {
+                                    "instructions": "Walk to Jamaica"
+                                },
+                                "travelMode": "WALK"
+                            },
+                            {
+                                "stepStartIndex": 9,
+                                "stepEndIndex": 9,
+                                "navigationInstruction": {
+                                    "instructions": "Light rail towards Jamaica Station"
+                                },
+                                "travelMode": "TRANSIT"
+                            }
+                        ]
+                    }
+                }
+            ],
+            "distanceMeters": 33337,
+            "duration": "3472s",
+            "staticDuration": "3472s",
+            "polyline": {
+                "encodedPolyline": "s~`xFlambMeJcApAjBv[~SbAb@`@LzBT~ERfAHlARdAXhChAdBdA`{@xj@pKtIxQdM|CnBhBt@|Ab@dFlAzHvAvBZhAL|DVxSVpC?r\\Yn@MfCu@j@Gl@AnHj@fC\\|@P|C~@pEpBnLvGjBx@pBl@jGzAfA\\hAj@ll@|_@Uh@fAdGyAzD_Bu@nCcMji@qcB^_BRqBrLmxBDsBB}BGwCOoCWoCe@mDc@uBuGaVeOef@sAsEq@wCiA}FmAaIeAoIePczAU{B]sEs@gHSoDG{BGuA?uCHiDNmCNiBPuAf@sCl@aCp@wBzAqDvAsCjCcEzAmBpGeHzCeDxPoR~DuEz@u@rE}ExD}EdBoCjA{B`AoBhK}ZrJoZ`DsKtHkYfIa[l@sBzCqLbNwg@hGmUzGoWrHiYrU}|@r@iCjAqDjDoIrCoF|@{A`CoDfB}BpDgErC}ChFeGhSoU|EwF|[}^tJeLpB{BpCwD|AcCtAiC~@wB`AoCv@yCReAX}BJiBDkCG}BMcBcA_JKyAg@sEaD{PcA^Yv@j@hCnFqAJGnArEj@jDtAzE|@zDb@`Ab@n@h@\\p@JdA?d@KjCwAnUqKf_@kQjL{Ez_@_O`]iMfBe@lBc@nAO~BOjEMjHDrDLv@FtAXdAXpCnAnCxAbCdAtGlBhBVjEXvE?tMFz@D~@X`@\\b@x@lArEb@z@n@r@zD|CpB|@~A\\bADbAAhBUjBa@hC}@`Ae@xIeFbH}EfEiDxCqC`EmEtAcBhAkBv@aB`AuCr@aD^_CLiBHeIM}FSqFOqGFgAL{@V{@^u@j@k@z@g@dAoA`Aq@FN"
+            },
+            "viewport": {
+                "low": {
+                    "latitude": 40.64362,
+                    "longitude": -73.993519
+                },
+                "high": {
+                    "latitude": 40.808133999999995,
+                    "longitude": -73.7893588
+                }
+            },
+            "travelAdvisory": {
+                "transitFare": {}
+            },
+            "localizedValues": {
+                "distance": {
+                    "text": "20.7 mi"
+                },
+                "duration": {
+                    "text": "58 mins"
+                },
+                "staticDuration": {
+                    "text": "58 mins"
+                },
+                "transitFare": {}
+            },
+            "routeLabels": [
+                "DEFAULT_ROUTE"
+            ]
+        },
+        {
+            "legs": [
+                {
+                    "distanceMeters": 33338,
+                    "duration": "3909s",
+                    "staticDuration": "3909s",
+                    "polyline": {
+                        "encodedPolyline": "s~`xFlambMeJcApAjBv[~SbAb@`@LzBT~ERfAHlARdAXhChAdBdA`{@xj@pKtIxQdM|CnBhBt@|Ab@dFlAzHvAvBZ|D^hADxSVpC?r\\Yn@MfCu@j@Gl@AnHj@fC\\|@P|C~@pEpBnLvGjBx@pBl@jGzAfA\\hAj@ll@|_@Uh@fAdGyAzD_Bu@nCcMji@qcB^_BRqBrLmxBDsBB}BGwCOoCWoCe@mDc@uBuGaVeOef@sAsEq@wCiA}FmAaIeAoIePczAU{B]sEs@gHSoDG{BGuA?uCHiDNmCNiBPuAf@sCl@aCp@wBzAqDvAsCjCcEzAmBpGeHzCeDxPoR~DuEz@u@rE}ExD}EdBoCjA{B`AoBhK}ZrJoZ`DsKtHkYfIa[l@sBzCqLbNwg@hGmUzGoWrHiYrU}|@r@iCjAqDjDoIrCoF|@{A`CoDfB}BpDgErC}ChFeGhSoU|EwF|[}^tJeLpB{BpCwD|AcCtAiC~@wB`AoCv@yCReAX}BJiBDkCG}BMcBcA_JKyAg@sEaD{PcA^Yv@j@hCnFqAJGnArEj@jDtAzE|@zDb@`Ab@n@h@\\p@JdA?d@KjCwAnUqKf_@kQjL{Ez_@_O`]iMfBe@lBc@nAO~BOjEMjHDrDLv@FtAXdAXpCnAnCxAbCdAtGlBhBVjEXvE?tMFz@D~@X`@\\b@x@lArEb@z@n@r@zD|CpB|@~A\\bADbAAhBUjBa@hC}@`Ae@xIeFbH}EfEiDxCqC`EmEtAcBhAkBv@aB`AuCr@aD^_CLiBHeIM}FSqFOqGFgAL{@V{@^u@j@k@z@g@dAoA`Aq@FN"
+                    },
+                    "startLocation": {
+                        "latLng": {
+                            "latitude": 40.806342699999995,
+                            "longitude": -73.9639078
+                        }
+                    },
+                    "endLocation": {
+                        "latLng": {
+                            "latitude": 40.64362,
+                            "longitude": -73.78944
+                        }
+                    },
+                    "steps": [
+                        {
+                            "distanceMeters": 201,
+                            "staticDuration": "23s",
+                            "polyline": {
+                                "encodedPolyline": "s~`xFlambMeJcA"
+                            },
+                            "startLocation": {
+                                "latLng": {
+                                    "latitude": 40.806342699999995,
+                                    "longitude": -73.9639078
+                                }
+                            },
+                            "endLocation": {
+                                "latLng": {
+                                    "latitude": 40.808133999999995,
+                                    "longitude": -73.9635701
+                                }
+                            },
+                            "navigationInstruction": {},
+                            "localizedValues": {
+                                "distance": {
+                                    "text": "0.1 mi"
+                                },
+                                "staticDuration": {
+                                    "text": "1 min"
+                                }
+                            },
+                            "travelMode": "WALK"
+                        },
+                        {
+                            "distanceMeters": 64,
+                            "staticDuration": "95s",
+                            "polyline": {
+                                "encodedPolyline": "yiaxFh_mbMpAjB"
+                            },
+                            "startLocation": {
+                                "latLng": {
+                                    "latitude": 40.808133999999995,
+                                    "longitude": -73.9635701
+                                }
+                            },
+                            "endLocation": {
+                                "latLng": {
+                                    "latitude": 40.807719999999996,
+                                    "longitude": -73.964111
+                                }
+                            },
+                            "navigationInstruction": {
+                                "instructions": "Take entrance Broadway & 116th St at NE corner"
+                            },
+                            "localizedValues": {
+                                "distance": {
+                                    "text": "210 ft"
+                                },
+                                "staticDuration": {
+                                    "text": "2 mins"
+                                }
+                            },
+                            "travelMode": "WALK"
+                        },
+                        {
+                            "distanceMeters": 6925,
+                            "staticDuration": "1290s",
+                            "polyline": {
+                                "encodedPolyline": "ggaxFtbmbMv[~SbAb@`@LzBT~ERfAHlARdAXhChAdBdA`{@xj@pKtIxQdM|CnBhBt@|Ab@dFlAzHvAvBZ|D^hADxSVpC?r\\Yn@MfCu@j@Gl@AnHj@fC\\|@P|C~@pEpBnLvGjBx@pBl@jGzAfA\\hAj@ll@|_@"
+                            },
+                            "startLocation": {
+                                "latLng": {
+                                    "latitude": 40.807719999999996,
+                                    "longitude": -73.964111
+                                }
+                            },
+                            "endLocation": {
+                                "latLng": {
+                                    "latitude": 40.750374,
+                                    "longitude": -73.991058
+                                }
+                            },
+                            "navigationInstruction": {
+                                "instructions": "Subway towards South Ferry"
+                            },
+                            "localizedValues": {
+                                "distance": {
+                                    "text": "4.3 mi"
+                                },
+                                "staticDuration": {
+                                    "text": "22 mins"
+                                }
+                            },
+                            "transitDetails": {
+                                "stopDetails": {
+                                    "arrivalStop": {
+                                        "name": "34 St-Penn Station",
+                                        "location": {
+                                            "latLng": {
+                                                "latitude": 40.750374,
+                                                "longitude": -73.991058
+                                            }
+                                        }
+                                    },
+                                    "arrivalTime": "2025-02-08T22:30:19Z",
+                                    "departureStop": {
+                                        "name": "116 St - Columbia University",
+                                        "location": {
+                                            "latLng": {
+                                                "latitude": 40.807719999999996,
+                                                "longitude": -73.964111
+                                            }
+                                        }
+                                    },
+                                    "departureTime": "2025-02-08T22:08:49Z"
+                                },
+                                "localizedValues": {
+                                    "arrivalTime": {
+                                        "time": {
+                                            "text": "5:30\u202fPM"
+                                        },
+                                        "timeZone": "America/New_York"
+                                    },
+                                    "departureTime": {
+                                        "time": {
+                                            "text": "5:08\u202fPM"
+                                        },
+                                        "timeZone": "America/New_York"
+                                    }
+                                },
+                                "headsign": "South Ferry",
+                                "headway": "720s",
+                                "transitLine": {
+                                    "agencies": [
+                                        {
+                                            "name": "MTA New York City Transit",
+                                            "phoneNumber": "+1 718-330-1234",
+                                            "uri": "http://www.mta.info/"
+                                        }
+                                    ],
+                                    "name": "1 Train (Broadway-7 Av Local)",
+                                    "uri": "https://new.mta.info/document/9426",
+                                    "color": "#ee352e",
+                                    "iconUri": "//maps.gstatic.com/mapfiles/transit/iw2/6/us-ny-mta/1.png",
+                                    "nameShort": "1 Line",
+                                    "textColor": "#ffffff",
+                                    "vehicle": {
+                                        "name": {
+                                            "text": "Subway"
+                                        },
+                                        "type": "SUBWAY",
+                                        "iconUri": "//maps.gstatic.com/mapfiles/transit/iw2/6/subway2.png"
+                                    }
+                                },
+                                "stopCount": 12
+                            },
+                            "travelMode": "TRANSIT"
+                        },
+                        {
+                            "distanceMeters": 21,
+                            "staticDuration": "22s",
+                            "polyline": {
+                                "encodedPolyline": "y`vwFbkrbMUh@"
+                            },
+                            "startLocation": {
+                                "latLng": {
+                                    "latitude": 40.750374,
+                                    "longitude": -73.991058
+                                }
+                            },
+                            "endLocation": {
+                                "latLng": {
+                                    "latitude": 40.750482,
+                                    "longitude": -73.9912666
+                                }
+                            },
+                            "navigationInstruction": {
+                                "instructions": "Take exit 7th Ave & 33rd St at NW corner"
+                            },
+                            "localizedValues": {
+                                "distance": {
+                                    "text": "69 ft"
+                                },
+                                "staticDuration": {
+                                    "text": "1 min"
+                                }
+                            },
+                            "travelMode": "WALK"
+                        },
+                        {
+                            "distanceMeters": 117,
+                            "staticDuration": "117s",
+                            "polyline": {
+                                "encodedPolyline": "oavwFllrbMfAdG"
+                            },
+                            "startLocation": {
+                                "latLng": {
+                                    "latitude": 40.750482,
+                                    "longitude": -73.9912666
+                                }
+                            },
+                            "endLocation": {
+                                "latLng": {
+                                    "latitude": 40.7501156,
+                                    "longitude": -73.9925799
+                                }
+                            },
+                            "navigationInstruction": {},
+                            "localizedValues": {
+                                "distance": {
+                                    "text": "384 ft"
+                                },
+                                "staticDuration": {
+                                    "text": "2 mins"
+                                }
+                            },
+                            "travelMode": "WALK"
+                        },
+                        {
+                            "distanceMeters": 18276,
+                            "staticDuration": "1260s",
+                            "polyline": {
+                                "encodedPolyline": "abvwFnzrbM_Bu@nCcMji@qcB^_BRqBrLmxBDsBB}BGwCOoCWoCe@mDc@uBuGaVeOef@sAsEq@wCiA}FmAaIeAoIePczAU{B]sEs@gHSoDG{BGuA?uCHiDNmCNiBPuAf@sCl@aCp@wBzAqDvAsCjCcEzAmBpGeHzCeDxPoR~DuEz@u@rE}ExD}EdBoCjA{B`AoBhK}ZrJoZ`DsKtHkYfIa[l@sBzCqLbNwg@hGmUzGoWrHiYrU}|@r@iCjAqDjDoIrCoF|@{A`CoDfB}BpDgErC}ChFeGhSoU|EwF|[}^tJeLpB{BpCwD|AcCtAiC~@wB`AoCv@yCReAX}BJiBDkCG}BMcBcA_JKyAg@sEaD{PcA^"
+                            },
+                            "startLocation": {
+                                "latLng": {
+                                    "latitude": 40.750568,
+                                    "longitude": -73.993519
+                                }
+                            },
+                            "endLocation": {
+                                "latLng": {
+                                    "latitude": 40.700226,
+                                    "longitude": -73.807861
+                                }
+                            },
+                            "navigationInstruction": {
+                                "instructions": "Train towards Huntington"
+                            },
+                            "localizedValues": {
+                                "distance": {
+                                    "text": "11.4 mi"
+                                },
+                                "staticDuration": {
+                                    "text": "21 mins"
+                                }
+                            },
+                            "transitDetails": {
+                                "stopDetails": {
+                                    "arrivalStop": {
+                                        "name": "Jamaica",
+                                        "location": {
+                                            "latLng": {
+                                                "latitude": 40.700226,
+                                                "longitude": -73.807861
+                                            }
+                                        }
+                                    },
+                                    "arrivalTime": "2025-02-08T22:57:00Z",
+                                    "departureStop": {
+                                        "name": "Penn Station",
+                                        "location": {
+                                            "latLng": {
+                                                "latitude": 40.750568,
+                                                "longitude": -73.993519
+                                            }
+                                        }
+                                    },
+                                    "departureTime": "2025-02-08T22:36:00Z"
+                                },
+                                "localizedValues": {
+                                    "arrivalTime": {
+                                        "time": {
+                                            "text": "5:57\u202fPM"
+                                        },
+                                        "timeZone": "America/New_York"
+                                    },
+                                    "departureTime": {
+                                        "time": {
+                                            "text": "5:36\u202fPM"
+                                        },
+                                        "timeZone": "America/New_York"
+                                    }
+                                },
+                                "headsign": "Huntington",
+                                "transitLine": {
+                                    "agencies": [
+                                        {
+                                            "name": "Long Island Rail Road",
+                                            "phoneNumber": "+1 718-217-5477",
+                                            "uri": "http://www.mta.info/lirr"
+                                        }
+                                    ],
+                                    "name": "Port Jefferson Branch",
+                                    "color": "#006ec7",
+                                    "nameShort": "LIRR",
+                                    "textColor": "#ffffff",
+                                    "vehicle": {
+                                        "name": {
+                                            "text": "Train"
+                                        },
+                                        "type": "HEAVY_RAIL",
+                                        "iconUri": "//maps.gstatic.com/mapfiles/transit/iw2/6/rail2.png"
+                                    }
+                                },
+                                "stopCount": 3
+                            },
+                            "travelMode": "TRANSIT"
+                        },
+                        {
+                            "distanceMeters": 63,
+                            "staticDuration": "63s",
+                            "polyline": {
+                                "encodedPolyline": "ghlwFzsnaMj@hC"
+                            },
+                            "startLocation": {
+                                "latLng": {
+                                    "latitude": 40.700356299999996,
+                                    "longitude": -73.8081419
+                                }
+                            },
+                            "endLocation": {
+                                "latLng": {
+                                    "latitude": 40.7001352,
+                                    "longitude": -73.80883089999999
+                                }
+                            },
+                            "navigationInstruction": {},
+                            "localizedValues": {
+                                "distance": {
+                                    "text": "207 ft"
+                                },
+                                "staticDuration": {
+                                    "text": "1 min"
+                                }
+                            },
+                            "travelMode": "WALK"
+                        },
+                        {
+                            "distanceMeters": 7671,
+                            "staticDuration": "480s",
+                            "polyline": {
+                                "encodedPolyline": "k_lwFrunaMJGnArEj@jDtAzE|@zDb@`Ab@n@h@\\p@JdA?d@KjCwAnUqKf_@kQjL{Ez_@_O`]iMfBe@lBc@nAO~BOjEMjHDrDLv@FtAXdAXpCnAnCxAbCdAtGlBhBVjEXvE?tMFz@D~@X`@\\b@x@lArEb@z@n@r@zD|CpB|@~A\\bADbAAhBUjBa@hC}@`Ae@xIeFbH}EfEiDxCqC`EmEtAcBhAkBv@aB`AuCr@aD^_CLiBHeIM}FSqFOqGFgAL{@V{@^u@j@k@z@g@dAoA`Aq@FN"
+                            },
+                            "startLocation": {
+                                "latLng": {
+                                    "latitude": 40.69894,
+                                    "longitude": -73.80842
+                                }
+                            },
+                            "endLocation": {
+                                "latLng": {
+                                    "latitude": 40.64362,
+                                    "longitude": -73.78944
+                                }
+                            },
+                            "navigationInstruction": {
+                                "instructions": "Light rail towards Jamaica Station"
+                            },
+                            "localizedValues": {
+                                "distance": {
+                                    "text": "4.8 mi"
+                                },
+                                "staticDuration": {
+                                    "text": "8 mins"
+                                }
+                            },
+                            "transitDetails": {
+                                "stopDetails": {
+                                    "arrivalStop": {
+                                        "name": "Terminal 1",
+                                        "location": {
+                                            "latLng": {
+                                                "latitude": 40.64362,
+                                                "longitude": -73.78944
+                                            }
+                                        }
+                                    },
+                                    "arrivalTime": "2025-02-08T23:12:00Z",
+                                    "departureStop": {
+                                        "name": "Jamaica",
+                                        "location": {
+                                            "latLng": {
+                                                "latitude": 40.69894,
+                                                "longitude": -73.80842
+                                            }
+                                        }
+                                    },
+                                    "departureTime": "2025-02-08T23:04:00Z"
+                                },
+                                "localizedValues": {
+                                    "arrivalTime": {
+                                        "time": {
+                                            "text": "6:12\u202fPM"
+                                        },
+                                        "timeZone": "America/New_York"
+                                    },
+                                    "departureTime": {
+                                        "time": {
+                                            "text": "6:04\u202fPM"
+                                        },
+                                        "timeZone": "America/New_York"
+                                    }
+                                },
+                                "headsign": "Jamaica Station",
+                                "transitLine": {
+                                    "agencies": [
+                                        {
+                                            "name": "JFK Airtrain",
+                                            "uri": "https://www.jfkairport.com/to-from-airport/air-train"
+                                        }
+                                    ],
+                                    "name": "Jamaica Train",
+                                    "color": "#d0021b",
+                                    "nameShort": "Jamaica AirTrain",
+                                    "textColor": "#ffffff",
+                                    "vehicle": {
+                                        "name": {
+                                            "text": "Light rail"
+                                        },
+                                        "type": "TRAM",
+                                        "iconUri": "//maps.gstatic.com/mapfiles/transit/iw2/6/tram2.png"
+                                    }
+                                },
+                                "stopCount": 3
+                            },
+                            "travelMode": "TRANSIT"
+                        }
+                    ],
+                    "localizedValues": {
+                        "distance": {
+                            "text": "20.7 mi"
+                        },
+                        "duration": {
+                            "text": "1 hour 5 mins"
+                        },
+                        "staticDuration": {
+                            "text": "1 hour 5 mins"
+                        }
+                    },
+                    "stepsOverview": {
+                        "multiModalSegments": [
+                            {
+                                "stepStartIndex": 0,
+                                "stepEndIndex": 1,
+                                "navigationInstruction": {
+                                    "instructions": "Walk to 116 St - Columbia University"
+                                },
+                                "travelMode": "WALK"
+                            },
+                            {
+                                "stepStartIndex": 2,
+                                "stepEndIndex": 2,
+                                "navigationInstruction": {
+                                    "instructions": "Subway towards South Ferry"
+                                },
+                                "travelMode": "TRANSIT"
+                            },
+                            {
+                                "stepStartIndex": 3,
+                                "stepEndIndex": 4,
+                                "navigationInstruction": {
+                                    "instructions": "Walk to Penn Station"
+                                },
+                                "travelMode": "WALK"
+                            },
+                            {
+                                "stepStartIndex": 5,
+                                "stepEndIndex": 5,
+                                "navigationInstruction": {
+                                    "instructions": "Train towards Huntington"
+                                },
+                                "travelMode": "TRANSIT"
+                            },
+                            {
+                                "stepStartIndex": 6,
+                                "stepEndIndex": 6,
+                                "navigationInstruction": {
+                                    "instructions": "Walk to Jamaica"
+                                },
+                                "travelMode": "WALK"
+                            },
+                            {
+                                "stepStartIndex": 7,
+                                "stepEndIndex": 7,
+                                "navigationInstruction": {
+                                    "instructions": "Light rail towards Jamaica Station"
+                                },
+                                "travelMode": "TRANSIT"
+                            }
+                        ]
+                    }
+                }
+            ],
+            "distanceMeters": 33338,
+            "duration": "3909s",
+            "staticDuration": "3909s",
+            "polyline": {
+                "encodedPolyline": "s~`xFlambMeJcApAjBv[~SbAb@`@LzBT~ERfAHlARdAXhChAdBdA`{@xj@pKtIxQdM|CnBhBt@|Ab@dFlAzHvAvBZ|D^hADxSVpC?r\\Yn@MfCu@j@Gl@AnHj@fC\\|@P|C~@pEpBnLvGjBx@pBl@jGzAfA\\hAj@ll@|_@Uh@fAdGyAzD_Bu@nCcMji@qcB^_BRqBrLmxBDsBB}BGwCOoCWoCe@mDc@uBuGaVeOef@sAsEq@wCiA}FmAaIeAoIePczAU{B]sEs@gHSoDG{BGuA?uCHiDNmCNiBPuAf@sCl@aCp@wBzAqDvAsCjCcEzAmBpGeHzCeDxPoR~DuEz@u@rE}ExD}EdBoCjA{B`AoBhK}ZrJoZ`DsKtHkYfIa[l@sBzCqLbNwg@hGmUzGoWrHiYrU}|@r@iCjAqDjDoIrCoF|@{A`CoDfB}BpDgErC}ChFeGhSoU|EwF|[}^tJeLpB{BpCwD|AcCtAiC~@wB`AoCv@yCReAX}BJiBDkCG}BMcBcA_JKyAg@sEaD{PcA^Yv@j@hCnFqAJGnArEj@jDtAzE|@zDb@`Ab@n@h@\\p@JdA?d@KjCwAnUqKf_@kQjL{Ez_@_O`]iMfBe@lBc@nAO~BOjEMjHDrDLv@FtAXdAXpCnAnCxAbCdAtGlBhBVjEXvE?tMFz@D~@X`@\\b@x@lArEb@z@n@r@zD|CpB|@~A\\bADbAAhBUjBa@hC}@`Ae@xIeFbH}EfEiDxCqC`EmEtAcBhAkBv@aB`AuCr@aD^_CLiBHeIM}FSqFOqGFgAL{@V{@^u@j@k@z@g@dAoA`Aq@FN"
+            },
+            "viewport": {
+                "low": {
+                    "latitude": 40.64362,
+                    "longitude": -73.993519
+                },
+                "high": {
+                    "latitude": 40.808133999999995,
+                    "longitude": -73.7893588
+                }
+            },
+            "travelAdvisory": {
+                "transitFare": {}
+            },
+            "localizedValues": {
+                "distance": {
+                    "text": "20.7 mi"
+                },
+                "duration": {
+                    "text": "1 hour 5 mins"
+                },
+                "staticDuration": {
+                    "text": "1 hour 5 mins"
+                },
+                "transitFare": {}
+            },
+            "routeLabels": [
+                "DEFAULT_ROUTE_ALTERNATE"
+            ]
+        }
+    ],
+    "geocodingResults": {
+        "origin": {
+            "geocoderStatus": {},
+            "type": [
+                "establishment",
+                "point_of_interest",
+                "university"
+            ],
+            "placeId": "ChIJyQ3Tlj72wokRUCflR_kzeVc"
+        },
+        "destination": {
+            "geocoderStatus": {},
+            "type": [
+                "airport",
+                "establishment",
+                "point_of_interest"
+            ],
+            "partialMatch": true,
+            "placeId": "ChIJR0lA1VBmwokR8BGfSBOyT-w"
+        }
+    }
+}
