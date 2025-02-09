@@ -4,18 +4,31 @@ import styled from 'styled-components';
 import SearchBar from './SearchBar';
 
 const Container = styled.div`
-  margin: 20px;
-  position: relative;
-  z-index: 10900;
-  background-color: pink;
+    position: absolute;
+    top: 92px;
+    left: 10px;
+    width: 420px;
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 100;
 `;
 
+const Destination = styled.div`
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    color: #333;
+`;
+
+
 const RouteOption = styled.div`
-  background-color: #f1f3f4; // Light gray background for options
   padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 4px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px; 
+  color: #333;
+  text-align: left; 
 
   h3 {
     font-size: 18px;
@@ -28,35 +41,27 @@ const RouteOption = styled.div`
   }
 `;
 
-const Directions = () => {
-
-  return(
+const Directions = ({ origin, destination }) => {
+  return (
     <Container>
-        <h1>Get Directions</h1>
+      {/* <h3>Directions</h3> */}
+      {/* <p><strong>From:</strong> {origin}</p>
+      <p><strong>To:</strong> {destination}</p> */}
+      {/* <button>Get Directions</button> */}
 
-        {/* Start and Destination Inputs */}
-        <div>
-            <SearchBar />
-            Text: destination
-        </div>
-
-        <button>
-          Get Directions
-        </button>
-
-        {/* Route Options Placeholder */}
-        <div>
-            <RouteOption>
-                <h3>Route 1</h3>
-                <p>Duration: N/A</p>
-                <p>Distance: N/A</p>
-            </RouteOption>
-            <RouteOption>
-                <h3>Route 2</h3>
-                <p>Duration: N/A</p>
-                <p>Distance: N/A</p>
-            </RouteOption>
-        </div>
+      {/* Optionally, render route options */}
+      <div>
+        <RouteOption>
+          <h3>Route 1</h3>
+          <p>Duration: N/A</p>
+          <p>Distance: N/A</p>
+        </RouteOption>
+        <RouteOption>
+          <h3>Route 2</h3>
+          <p>Duration: N/A</p>
+          <p>Distance: N/A</p>
+        </RouteOption>
+      </div>
     </Container>
   );
 };
