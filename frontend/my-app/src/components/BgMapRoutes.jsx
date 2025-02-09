@@ -9,15 +9,14 @@ const containerStyle = {
 
 const BgMapRoutes = ({ origin, destination }) => {
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: VITE_GOOGLE_API_KEY, // Replace with your actual API key
-    libraries: ['geometry'], // Load the geometry library to decode polylines
+    googleMapsApiKey: import.meta.env.VITE_GOOGLE_API_KEY,
+    libraries: ['geometry'], // For decoding polylines
   });
 
-  // Default center for the map
+  // Default center if no coordinates are provided
   const defaultCenter = { lat: 40.760, lng: -73.980 };
-  // Center the map between origin and destination if available
   const center =
-    origin && destination
+    origin && destination && origin.lat && destination.lat
       ? {
           lat: (origin.lat + destination.lat) / 2,
           lng: (origin.lng + destination.lng) / 2,
@@ -27,21 +26,23 @@ const BgMapRoutes = ({ origin, destination }) => {
   // State to store routes fetched from the backend
   const [routes, setRoutes] = useState([]);
 
-  // When both origin and destination are provided, fetch route data from backend
+  // Fetch route data when origin and destination are available
   useEffect(() => {
     if (origin && destination) {
-      // Post the origin and destination to your backend API
-      fetch('/api/routes', {
+      fetch('http://127.0.0.1:5000/get_routes', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ origin, destination }),
       })
         .then((response) => response.json())
         .then((data) => {
-          // Expecting data in the format: { routes: [ { encodedPolyline: '...' }, { encodedPolyline: '...' } ] }
-          setRoutes(data.routes);
+          if (data.error) {
+            console.error('Backend error:', data.error);
+          } else if (data.routes) {
+            console.log('Routes received:', data.routes);
+            // Pick the first two routes
+            setRoutes(data.routes.slice(0, 2));
+          }
         })
         .catch((error) => console.error('Error fetching routes:', error));
     }
@@ -53,16 +54,27 @@ const BgMapRoutes = ({ origin, destination }) => {
   return (
     <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={13}>
       {routes.map((route, index) => {
-        // Decode the encoded polyline using the Google Maps geometry library
-        const decodedPath = window.google.maps.geometry.encoding.decodePath(
-          route.encodedPolyline
-        );
-        // Convert the decoded path to an array of simple {lat, lng} objects
+        // Try to use the route-level polyline first.
+        // If not available, fall back to the first leg's polyline.
+        const encodedPolyline =
+          (route.polyline && route.polyline.encodedPolyline) ||
+          (route.legs &&
+            route.legs[0] &&
+            route.legs[0].polyline &&
+            route.legs[0].polyline.encodedPolyline);
+
+        if (!encodedPolyline) {
+          console.warn(`No encoded polyline found for route index ${index}`);
+          return null;
+        }
+
+        // Decode the polyline using Google Maps geometry library
+        const decodedPath = window.google.maps.geometry.encoding.decodePath(encodedPolyline);
         const path = decodedPath.map((latLng) => ({
           lat: latLng.lat(),
           lng: latLng.lng(),
         }));
-        // Choose a color based on the index: first route gets #8B0000, second gets #FF7F7F
+        // Choose color: first route gets #8B0000, second gets #FF7F7F
         const color = index === 0 ? '#8B0000' : '#FF7F7F';
 
         return (
