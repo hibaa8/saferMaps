@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import BgMap from './components/BgMap';
 import SearchBar from './components/SearchBar';
 import Directions from './components/Directions';
+import logo from './assets/logo.png';
 
 function App() {
 
@@ -14,6 +15,18 @@ function App() {
       <BgMap location={location}/>
       <SearchBar />
       
+      <img
+        src={logo}  // Use the path of the image
+        alt="Top Right Logo"
+        style={{
+          position: 'absolute',
+          top: '20px',
+          right: '20px',
+          width: '200px',
+          height: 'auto',
+        }}
+      />
+
     </div>
   )
 }

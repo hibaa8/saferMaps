@@ -7,6 +7,7 @@ const SearchBarContainer = styled.div`
   top: 10px;
   left: 10px;
   z-index: 10;
+  width: 200px;
   display: flex;
   align-items: center;
   background-color: rgba(255, 255, 255, 1);
