@@ -1,9 +1,11 @@
+
 from flask import Flask, request, jsonify
 import os
 from groq import Groq
 from dotenv import load_dotenv
 import math
 import requests
+import json
 
 app = Flask(__name__)
 
@@ -63,17 +65,26 @@ def get_image_description(image_url):
         return "No valid response received."
 
 
+# Load the cameras data from the JSON file
+def load_cameras_data(file_path):
+    try:
+        with open(file_path, 'r') as file:
+            return json.load(file)
+    except FileNotFoundError:
+        return []
+
 # Define the Flask endpoint
 @app.route('/get_closest_camera', methods=['POST'])
 def get_closest_camera_endpoint():
     try:
         data = request.get_json()
-        if 'route' not in data or 'cameras' not in data:
-            print("Missing required parameters")
-            return jsonify({'error': 'Missing required parameters'}), 400
+        if 'route' not in data:
+            print("Missing required parameter: route")
+            return jsonify({'error': 'Missing required parameter: route'}), 400
 
         route = data['route']
-        cameras = data['cameras']
+        cameras = load_cameras_data('cameras_with_location.json')
+
         closest_camera = get_closest_camera(route, cameras)
 
         if closest_camera is None:
