@@ -43,10 +43,6 @@ def get_closest_camera_endpoint():
         # Get the JSON data from the request
         data = request.get_json()
 
-        # Validate input data
-        if 'route_data' not in data:
-            return jsonify({'error': 'Missing required parameters'}), 400
-
         route_data = data['route_data']
 
         # Extract the destination coordinates from the route data
