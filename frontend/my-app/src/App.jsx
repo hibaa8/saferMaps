@@ -4,6 +4,7 @@ import BgMap from './components/BgMap';
 import SearchBar from './components/SearchBar';
 import Directions from './components/Directions';
 import logo from './assets/logo.png';
+import BgMapJS from './components/BgMapJS';
 
 function App() {
 
