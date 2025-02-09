@@ -1,19 +1,30 @@
 import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+
 
 // Container for the search bar
 const SearchBarContainer = styled.div`
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  z-index: 1000;
-  width: 200px;
-  display: flex;
-  align-items: center;
-  background-color: rgba(255, 255, 255, 1);
-  padding: 10px;
-  border-radius: 0px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  ${(props) =>
+    props.fixed
+      ? css`
+          position: fixed;
+          top: 10px;
+          left: 10px;
+          width: 200px;
+          background-color: rgba(255, 255, 255, 1);
+          padding: 10px;
+          border-radius: 0;
+          box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+          z-index: 1000;
+        `
+      : css`
+          position: relative;
+          width: 100%;
+          background-color: rgba(255, 255, 255, 1);
+          padding: 10px;
+          border-radius: 0;
+          box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        `}
 `;
 
 // Styled search input
@@ -37,19 +48,32 @@ const SearchInput = styled.input`
   }
 `;
 
-// Container for the suggestions dropdown
 const SuggestionsContainer = styled.div`
-  position: fixed;
-  top: 80px; /* Adjust based on your layout */
-  left: 10px;
-  z-index: 10;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  width: 300px;
-  max-height: 200px;
-  overflow-y: auto;
+  ${(props) =>
+    props.fixed
+      ? css`
+          position: fixed;
+          top: 80px; /* Adjust as needed */
+          left: 10px;
+          z-index: 10;
+          background-color: #fff;
+          border: 1px solid #ddd;
+          width: 300px;
+          max-height: 200px;
+          overflow-y: auto;
+        `
+      : css`
+          position: absolute;
+          top: 100%;
+          left: 0;
+          z-index: 10;
+          background-color: #fff;
+          border: 1px solid #ddd;
+          width: 100%;
+          max-height: 200px;
+          overflow-y: auto;
+        `}
 `;
-
 // Each suggestion item
 const SuggestionItem = styled.div`
   padding: 10px;
@@ -59,7 +83,7 @@ const SuggestionItem = styled.div`
   }
 `;
 
-const SearchBar = () => {
+const SearchBar =  ({ fixed, onPlaceSelected }) => {
   // State to hold the current input and suggestions
   const [location, setLocation] = useState('');
   const [suggestions, setSuggestions] = useState([]);
@@ -104,6 +128,9 @@ const SearchBar = () => {
     setLocation(suggestion.description);
     setSuggestions([]);
     // Optionally, trigger further actions like an API search
+    if (onPlaceSelected) {
+      onPlaceSelected(suggestion.description);
+    }
   };
 
   // Optional: function to perform search when the user hits Enter
@@ -117,7 +144,7 @@ const SearchBar = () => {
 
   return (
     <div style={{ position: 'relative' }}>
-      <SearchBarContainer>
+      <SearchBarContainer fixed={fixed}>
         <SearchInput
           type="text"
           value={location}
@@ -133,7 +160,7 @@ const SearchBar = () => {
 
       {/* Render the suggestions dropdown if there are any suggestions */}
       {suggestions.length > 0 && (
-        <SuggestionsContainer>
+        <SuggestionsContainer fixed={fixed}>
           {suggestions.map((suggestion) => (
             <SuggestionItem
               key={suggestion.place_id}

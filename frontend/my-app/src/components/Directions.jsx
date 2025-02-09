@@ -41,14 +41,19 @@ const RouteOption = styled.div`
   }
 `;
 
-const Directions = () => {
+const Directions = ({ origin }) => {
+  // Handler for destination selection in the second SearchBar
+  const handleDestinationSelect = (place) => {
+    console.log('Destination selected: ', place);
+    // Additional logic for destination can be added here.
+  };
 
   return(
     <Container>
         {/* Start and Destination Inputs */}
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
             <div style={{ display: 'flex', justifyContent: 'center'  }}>
-                <SearchBar style={{ width: '28%' }}/>
+              <SearchBar fixed={false} style={{ width: '28%' }} onPlaceSelected={handleDestinationSelect} />
             </div>
             <br />
             <br />
