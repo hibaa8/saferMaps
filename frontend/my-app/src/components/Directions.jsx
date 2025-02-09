@@ -5,11 +5,9 @@ import SearchBar from './SearchBar';
 
 const Container = styled.div`
     position: absolute;
-    top: 92px;
-    left: 10px;
+    top: 30px;
     width: 420px;
     background-color: white;
-    border-radius: 8px;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     z-index: 100;
@@ -23,9 +21,14 @@ const Destination = styled.div`
     color: #333;
 `;
 
+const Hr = styled.hr`
+  border: 0;
+  border-top: 1px solid #ddd;
+  margin: 10px 0;
+`;
 
 const RouteOption = styled.div`
-  padding: 10px;
+  padding: 5px;
   margin-bottom: 10px; 
   color: #333;
   text-align: left; 
@@ -44,18 +47,16 @@ const RouteOption = styled.div`
 const Directions = ({ origin, destination }) => {
   return (
     <Container>
-      {/* <h3>Directions</h3> */}
-      {/* <p><strong>From:</strong> {origin}</p>
-      <p><strong>To:</strong> {destination}</p> */}
-      {/* <button>Get Directions</button> */}
 
-      {/* Optionally, render route options */}
       <div>
         <RouteOption>
           <h3>Route 1</h3>
           <p>Duration: N/A</p>
           <p>Distance: N/A</p>
         </RouteOption>
+        
+        <Hr />
+
         <RouteOption>
           <h3>Route 2</h3>
           <p>Duration: N/A</p>
