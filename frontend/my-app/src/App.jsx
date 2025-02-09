@@ -1,17 +1,17 @@
+// App.jsx
 import './App.css';
 import React, { useState } from 'react';
-import BgMap from './components/BgMap';
 import SearchBar from './components/SearchBar';
 import Directions from './components/Directions';
 import logo from './assets/logo.png';
-import BgMapJS from './components/BgMapJS';
+import BgMapRoutes from './components/BgMapRoutes';
 
 function App() {
-
   const [origin, setOrigin] = useState(null);
   const [destination, setDestination] = useState(null);
 
   const handleOriginSelect = (place) => {
+    // Expecting 'place' to be an object like: { lat: 40.7128, lng: -74.0060 }
     setOrigin(place);
   };
 
@@ -22,37 +22,28 @@ function App() {
   return (
     <div>
       {/* Container for the two search bars */}
-      <div 
-        style={{ 
-          position: 'fixed', 
-          top: '10px', 
-          left: '10px', 
+      <div
+        style={{
+          position: 'fixed',
+          top: '10px',
+          left: '10px',
           zIndex: 1000,
           display: 'flex',
           flexDirection: 'column',
-          gap: '10px'
+          gap: '10px',
         }}
       >
-        <SearchBar 
-          fixed={false} 
-          onPlaceSelected={handleOriginSelect} 
-          placeholder="Enter origin"
-        />
-        <SearchBar 
-          fixed={false} 
-          onPlaceSelected={handleDestinationSelect} 
-          placeholder="Enter destination"
-        />
-
+        <SearchBar onPlaceSelected={handleOriginSelect} placeholder="Enter origin" />
+        <SearchBar onPlaceSelected={handleDestinationSelect} placeholder="Enter destination" />
       </div>
-      
-      {/* Directions Panel: appears below the search bars after both are selected */}
+
+      {/* Directions Panel (if needed) */}
       {origin && destination && (
-        <div 
-          style={{ 
-            position: 'fixed', 
-            top: '100px',  // Adjust to position below the search bars
-            left: '10px', 
+        <div
+          style={{
+            position: 'fixed',
+            top: '100px', // Adjust as needed
+            left: '10px',
             zIndex: 100,
           }}
         >
@@ -60,11 +51,11 @@ function App() {
         </div>
       )}
 
-      {/* Background Map Component */}
-      <BgMap location={origin} />
-      
+      {/* Background Map with Routes */}
+       <BgMapRoutes origin={origin} destination={destination} /> 
+
       <img
-        src={logo}  // Use the path of the image
+        src={logo}
         alt="Top Right Logo"
         style={{
           position: 'absolute',
@@ -74,9 +65,8 @@ function App() {
           height: 'auto',
         }}
       />
-
     </div>
-  )
+  );
 }
 
 export default App;
