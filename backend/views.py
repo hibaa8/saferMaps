@@ -1,13 +1,9 @@
+from flask import Blueprint, send_from_directory, request, jsonify
 import os
-from flask import request, Blueprint, send_from_directory, render_template, request, jsonify
-import os
-from flask_login import login_required, current_user
-from bson import ObjectId 
-from datetime import datetime
-import requests
 from services.GroqImage import GroqImage
 from services.MapAPI import MapAPI
 from services.RoutePlanner import RoutePlanner
+from services.RouteSummary import routeSummary
 import json
 
 views = Blueprint('views', __name__)
@@ -118,4 +114,17 @@ def get_routes():
         print(f"Error: {e}")
         return jsonify({'error': 'An error occurred'}), 500
 
+@views.route('/summarize_routes', methods=['POST'])
+def summarize():
+    try:
+        # Get the JSON data from the request
+        data = request.get_json()
+
+        # Call Groq API to summarize the routes
+        summaries = routeSummary.summarize_routes_with_groq(data)
+
+        # Return the summaries
+        return jsonify({"summaries": summaries})
+    except Exception as e:
+        return jsonify({"error": str(e)}), 400
     

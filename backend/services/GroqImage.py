@@ -1,5 +1,4 @@
-from flask import Flask, request, jsonify
-import json
+from flask import Flask
 import os
 import math
 from groq import Groq
