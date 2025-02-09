@@ -3,8 +3,12 @@ import React, { useState, useEffect } from 'react';
 import { GoogleMap, Polyline, useLoadScript } from '@react-google-maps/api';
 
 const containerStyle = {
+  position: 'absolute',
   width: '100vw',
   height: '100vh',
+  top: 0,
+  left: 0,
+
 };
 
 const BgMapRoutes = ({ origin, destination }) => {

@@ -59,8 +59,8 @@ function App() {
         alt="Top Right Logo"
         style={{
           position: 'absolute',
-          top: '20px',
-          right: '20px',
+          left: '10px',
+          bottom: '15px',
           width: '200px',
           height: 'auto',
         }}
@@ -70,10 +70,10 @@ function App() {
       <a href="https://groq.com" target="_blank" rel="noopener noreferrer" 
          style={{
            position: 'absolute',
-           top: '75px',
-           width: '70px',
+           bottom: '5px',
+           width: '50px',
            height: 'auto',
-           right: '20px',
+           left: '75px',
            display: 'flex',
            alignItems: 'center',
            gap: '8px',
