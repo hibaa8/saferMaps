@@ -8,13 +8,60 @@ import BgMapJS from './components/BgMapJS';
 
 function App() {
 
-  const [location, setLocation] = useState(null);
+  const [origin, setOrigin] = useState(null);
+  const [destination, setDestination] = useState(null);
+
+  const handleOriginSelect = (place) => {
+    setOrigin(place);
+  };
+
+  const handleDestinationSelect = (place) => {
+    setDestination(place);
+  };
 
   return (
     <div>
-      <Directions />
-      <BgMap />
-      <SearchBar />
+      {/* Container for the two search bars */}
+      <div 
+        style={{ 
+          position: 'fixed', 
+          top: '10px', 
+          left: '10px', 
+          zIndex: 1000,
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '10px'
+        }}
+      >
+        <SearchBar 
+          fixed={false} 
+          onPlaceSelected={handleOriginSelect} 
+          placeholder="Enter origin"
+        />
+        <SearchBar 
+          fixed={false} 
+          onPlaceSelected={handleDestinationSelect} 
+          placeholder="Enter destination"
+        />
+
+      </div>
+      
+      {/* Directions Panel: appears below the search bars after both are selected */}
+      {origin && destination && (
+        <div 
+          style={{ 
+            position: 'fixed', 
+            top: '100px',  // Adjust to position below the search bars
+            left: '10px', 
+            zIndex: 100,
+          }}
+        >
+          <Directions origin={origin} destination={destination} />
+        </div>
+      )}
+
+      {/* Background Map Component */}
+      <BgMap location={origin} />
       
       <img
         src={logo}  // Use the path of the image

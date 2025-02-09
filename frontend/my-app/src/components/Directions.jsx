@@ -41,40 +41,27 @@ const RouteOption = styled.div`
   }
 `;
 
-const Directions = () => {
-
-  return(
+const Directions = ({ origin, destination }) => {
+  return (
     <Container>
-        {/* Start and Destination Inputs */}
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-            <div style={{ display: 'flex', justifyContent: 'center'  }}>
-                <SearchBar style={{ width: '28%' }}/>
-            </div>
-            <br />
-            <br />
-            <br />
-            <Destination>
-                Text: destination
-            </Destination>
-        </div>
+      {/* <h3>Directions</h3> */}
+      {/* <p><strong>From:</strong> {origin}</p>
+      <p><strong>To:</strong> {destination}</p> */}
+      {/* <button>Get Directions</button> */}
 
-        <button>
-          Get Directions
-        </button>
-
-        {/* Route Options Placeholder */}
-        <div>
-            <RouteOption>
-                <h3>Route 1</h3>
-                <p>Duration: N/A</p>
-                <p>Distance: N/A</p>
-            </RouteOption>
-            <RouteOption>
-                <h3>Route 2</h3>
-                <p>Duration: N/A</p>
-                <p>Distance: N/A</p>
-            </RouteOption>
-        </div>
+      {/* Optionally, render route options */}
+      <div>
+        <RouteOption>
+          <h3>Route 1</h3>
+          <p>Duration: N/A</p>
+          <p>Distance: N/A</p>
+        </RouteOption>
+        <RouteOption>
+          <h3>Route 2</h3>
+          <p>Duration: N/A</p>
+          <p>Distance: N/A</p>
+        </RouteOption>
+      </div>
     </Container>
   );
 };
