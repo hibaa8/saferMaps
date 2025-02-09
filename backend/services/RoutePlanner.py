@@ -7,8 +7,9 @@ from .RouteGraph import RouteGraph
 
 
 class RoutePlanner:
-    def __init__(self, crime_data):
+    def __init__(self, crime_data, population_data):
         self.crime_data = crime_data
+        self.population_data = population_data
 
     def get_crime_coordinates(self, crime):
         if "latitude" in crime and "longitude" in crime:
@@ -35,11 +36,32 @@ class RoutePlanner:
                     crime_count += 1
 
         return crime_count
+    
+    def population_density(self, node):
+        node_lat, node_lng = node
+        total_ridership = 0
+        threshold_distance = 1000  # meters
+
+        for station in self.population_data:
+            station_coords = (float(station["latitude"]), float(station["longitude"]))
+            distance = geodesic(node, station_coords).meters
+            if distance <= threshold_distance:
+                ridership = float(station.get("ridership", 0))
+                total_ridership += ridership
+
+        return total_ridership
+
+    # def compute_heuristic(self, current, goal):
+    #     distance_heuristic = geodesic(current, goal).meters
+    #     crime_heuristic = self.crime_density(current) * 100  
+    #     return distance_heuristic + crime_heuristic
 
     def compute_heuristic(self, current, goal):
         distance_heuristic = geodesic(current, goal).meters
         crime_heuristic = self.crime_density(current) * 100  # Heavily penalize crime-dense areas
-        return distance_heuristic + crime_heuristic
+        population_heuristic = -self.population_density(current) * 10  # Prefer areas with higher population
+        return distance_heuristic + crime_heuristic + population_heuristic
+
 
     def a_star_search(self, graph, start, goal):
         open_set = []
@@ -81,6 +103,7 @@ class RoutePlanner:
 
         node_colors = ['green' if node in path else 'skyblue' for node in graph.nodes]
         nx.draw(graph, pos, with_labels=True, node_size=700, node_color=node_colors, edge_color='gray', arrows=True, ax=ax)
+        # nx.draw_networkx_edge_labels(graph, pos, edge_labels={(u, v): f"{d:.2f}m" for (u, v, d) in graph.edges(data='weight')}, font_size=8, ax=ax)
         nx.draw_networkx_edge_labels(graph, pos, edge_labels={(u, v): f"{d:.2f}m" for (u, v, d) in graph.edges(data='weight')}, font_size=8, ax=ax)
         ax.set_title(title)
 
@@ -111,7 +134,6 @@ class RoutePlanner:
         # Sort routes by f_score and get the indices of the best 2
         sorted_route_indices = [route_index for route_index, _ in sorted(route_scores, key=lambda x: x[1])[:2]]
 
-        # Retrieve the original routes corresponding to the best 2 indices
         best_routes = [json_data["routes"][index] for index in sorted_route_indices]
 
         return best_routes
@@ -144,5 +166,5 @@ class RoutePlanner:
         # plt.show()
 
         # Return the two best routes
-        return [(route[0], route[1], route[4]) for route in best_routes]  # Return (route_index, path, f_score)
+        # return [(route[0], route[1], route[4]) for route in best_routes]  # Return (route_index, path, f_score)
 
