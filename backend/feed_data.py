@@ -1,31 +1,22 @@
-from flask_sqlalchemy import SQLAlchemy
-from datetime import datetime
+from pymongo import MongoClient
 import json
+from datetime import datetime
+import os
 
-# Assuming SQLAlchemy is initialized
-db = SQLAlchemy()
-
-class GeneratedSearch(db.Model):
-    __tablename__ = 'generated_searches'
-    id = db.Column(db.Integer, primary_key=True)
-    route_data = db.Column(db.JSON, nullable=False)
-    created_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
-
+client = MongoClient('mongodb+srv://test:w5GDUdfw6rrCrSbP@cluster0.eokpf.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
+db = client['map_routes']  # Replace with your database name
+generated_search_collection = db['GeneratedSearch']  # Replace with your collection name
 
 def insert_route_data(route_json_path):
-    # Read the JSON file containing the route data
     with open(route_json_path, 'r') as file:
         route_data = json.load(file)
 
-    # Create a new GeneratedSearch object
-    new_generated_search = GeneratedSearch(
-        route_data=route_data
-    )
+    new_route_document = {
+        "route_data": route_data,
+        "created_at": datetime.utcnow()
+    }
 
-    # Add and commit the new entry to the database
-    db.session.add(new_generated_search)
-    db.session.commit()
-
-    print("Route data inserted successfully.")
+    result = generated_search_collection.insert_one(new_route_document)
+    print(f"Route data inserted with ID: {result.inserted_id}")
 
 insert_route_data('test_feed_data.json')
