@@ -47,36 +47,6 @@ def get_public_transit_route(origin, destination, api_key):
     else:
         return None
 
-def get_walking_directions(origin, destination, api_key):
-    """
-    Get walking directions between two locations using Google Routes API.
-
-    Args:
-    - origin (str): Origin location
-    - destination (str): Destination location
-    - api_key (str): Google Routes API key
-
-    Returns:
-    - dict: Dictionary containing walking directions
-    """
-    # Set API endpoint and parameters
-    base_url = "https://maps.googleapis.com/maps/api/directions/json"
-    params = {
-        "origin": origin,
-        "destination": destination,
-        "key": api_key,
-        "mode": "walking"
-    }
-
-    # Get walking directions
-    response = requests.get(base_url, params=params)
-
-    # Check if the request was successful
-    if response.status_code == 200:
-        return response.json()
-    else:
-        return None
-
 @app.route('/get_routes', methods=['POST'])
 def get_routes():
     data = request.get_json()
