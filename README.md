@@ -1,8 +1,7 @@
 # SaferMaps
 
-This is our project for DevFest 2025 at Columbia University. 
+SaferMaps optimizes public transportation routes to help users travel safely across NYC. By analyzing crime data, population density, and real-time CCTV feeds, the application generates safer travel paths and visualizes them on an interactive map. Features include route summaries, transport service suggestions, and personalized route options based on user preferences.
 
-A full stack app for generating safe routes from departure location to the destination. 
 ---
 
 ## **Tech Stack**
@@ -17,7 +16,9 @@ A full stack app for generating safe routes from departure location to the desti
 - MongoDB
 
 ### **AI Integration**
-- **Groq AI**
+- llama 3.37 and llama 3.2-11b-vision
+- A* search
+
 ---
 
 ## **Installation**
