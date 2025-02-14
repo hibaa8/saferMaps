@@ -10,3 +10,6 @@ services/__pycache__/*
 package-lock.json
 
 backend/data
+
+.idea
+venv
