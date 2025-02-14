@@ -34,7 +34,7 @@ def get_closest_camera_endpoint():
     try:
         # Get the absolute path of the current script and adjust path to 'services' folder
         base_dir = os.path.dirname(os.path.abspath(__file__))
-        camera_data_path = os.path.join(base_dir, 'services', 'cameras_with_location.json')
+        camera_data_path = os.path.join(base_dir, 'database', 'cameras_with_location.json')
 
         # Now, you can safely open the file
         with open(camera_data_path, 'r') as file:
