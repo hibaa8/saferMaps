@@ -8,3 +8,5 @@ __pycache__/
 services/__pycache__/*
 
 package-lock.json
+
+backend/data
