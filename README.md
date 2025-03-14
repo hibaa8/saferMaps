@@ -1,4 +1,4 @@
-# SaferMaps
+# SaferMaps (created for DevFest'25 hackathon)
 
 SaferMaps optimizes public transportation routes to help users travel safely across NYC. By analyzing crime data, population density, and real-time CCTV feeds, the application generates safer travel paths and visualizes them on an interactive map. Features include route summaries, transport service suggestions, and personalized route options based on user preferences.
 
